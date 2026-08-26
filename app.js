@@ -61,6 +61,39 @@ const scienceComics = [
   {tag:"生命漫画",title:"一平方米的生态城",text:"草、昆虫、鸟和微生物互相连接，小小角落也有完整生态故事。",bg:"#e4f7e7",ink:"#2ca86f",chapter:6}
 ];
 
+const pictureApi="https://console.enterprise.trae.cn/api/ide/v1/text_to_image";
+const englishVisuals={library:"A bright modern primary school library, colorful bookshelves, reading tables, warm daylight, no text, child friendly educational illustration",school:"A welcoming Chinese primary school campus with classroom buildings and playground, sunny day, no text, child friendly illustration",teacher:"A friendly female primary school English teacher standing by a classroom board, no text, warm educational illustration",breakfast:"Healthy breakfast with milk eggs bread and fruit on a family table, no text, child friendly illustration",weather:"Four weather conditions sun cloud rain snow in one educational scene, no text, child friendly illustration"};
+function imageUrl(prompt,size="landscape_4_3"){return `${pictureApi}?prompt=${encodeURIComponent(`Educational website image for an 10-year-old child: ${prompt}`)}&image_size=${size}`}
+
+const advancedData={
+  chinese:[
+    [["下列词语中没有错别字的是？","迫不及待","迫不急待","迫不急侍"],["“供”在“供不应求”中读？","gōng","gòng","gǒng"],["与“聚精会神”意思最接近的是？","全神贯注","心不在焉","东张西望"],["“循规蹈矩”中的“循”意思是？","遵守","寻找","循环"],["“震耳欲聋”形容？","声音很大","非常安静","速度很快"],["“临”在“身临其境”中的意思是？","到达","临时","照着写"],["填入“他做事一向____，从不马虎”的词语是？","一丝不苟","漫不经心","手忙脚乱"],["下列加点字意思不同的一项是？","绝处逢生中的绝","络绎不绝中的绝","绝妙中的绝"],["“鼎”字用部首查字法应查？","鼎部","目部","一部"]],
+    [["“通过努力，使我的成绩提高了”应怎样修改？","删去“使”","删去“努力”","删去“成绩”"],["“桂花开了，很远就能闻到香味”改为夸张句？","桂花香飘十里","桂花很香","桂花开在院里"],["与“这难道不是伟大的奇观吗”意思相同的是？","这是伟大的奇观","这不是奇观","这可能是奇观"],["“书籍是人类进步的阶梯”把书籍比作？","阶梯","人类","进步"],["“风翻开了我的书页”使用了？","拟人","排比","反问"],["下列关联词正确的是？","虽然下雨，但是比赛继续","因为下雨，所以比赛继续举行得晴朗","不但下雨，而且所以"],["“我估计他今天一定会来”病因是？","前后矛盾","成分残缺","词序颠倒"],["缩句“美丽的彩虹高高地挂在天空”正确的是？","彩虹挂在天空","美丽彩虹挂","彩虹高高"],["“教室里响起了热烈的掌声”中“热烈”修饰？","掌声","教室","响起"]],
+    [["“梅须逊雪三分白”的下一句是？","雪却输梅一段香","不教胡马度阴山","碧海青天夜夜心"],["“可怜九月初三夜”中“可怜”意为？","可爱","值得同情","贫穷"],["《题西林壁》的作者是？","苏轼","李白","王维"],["“生当作人杰”的下一句是？","死亦为鬼雄","不肯过江东","古来征战几人回"],["“嫦娥应悔偷灵药”表达了？","孤独寂寞","欢庆丰收","依依惜别"],["“莫愁前路无知己”是在？","劝慰朋友","赞美春天","思念故乡"],["“一道残阳铺水中”中的“铺”写出？","夕阳斜照水面的柔和","工人铺路","水面结冰"],["诗句“横看成岭侧成峰”说明？","观察角度不同结果不同","山会移动","天气变化"],["《夏日绝句》赞颂了项羽的？","英雄气概","聪明才智","勤劳节俭"]],
+    [["阅读时判断人物品质，最有力的依据是？","人物言行和具体事件","文章字数","标点数量"],["概括长文章主要内容适合？","抓主要人物和关键事件","逐字抄写","只看题目猜"],["“它像离弦的箭冲出去”说明它？","速度很快","声音很响","体积很大"],["作者先写结果再回忆经过，属于？","倒叙","顺叙","说明"],["说明文列出准确数字的作用是？","具体准确地说明特点","增加想象","表达悲伤"],["联系上下文理解“破例”，应重点看？","前后发生了什么","字的笔画","作者姓名"],["文章结尾再次点题的作用是？","首尾呼应、突出中心","增加人物","改变时间"],["区分事实与观点，哪句是观点？","这本书非常精彩","书有180页","出版于2020年"],["阅读批注最有价值的是？","写下疑问、感受和依据","只画横线","抄写页码"]],
+    [["写游记最清楚的顺序是？","按游览路线写","想到哪里写哪里","只写结尾"],["写人物特点应选择？","能表现特点的典型事例","所有小事","大量外貌词"],["习作中引用人物原话，通常使用？","引号","书名号","省略号"],["把事情经过写具体，应重点写？","动作、语言、心理和细节","日期","题目"],["修改习作时发现重复啰嗦，应？","删减合并","继续重复","换大字体"],["写观察日记，应重点记录？","连续变化和新发现","想象的结果","别人的结论"],["文章开头设置疑问可以？","吸引读者继续阅读","直接结束文章","省略主题"],["写信正文后通常要写？","祝福语、署名和日期","目录","页码"],["“那一刻我长大了”选材应围绕？","成长变化的具体瞬间","景物颜色","物品价格"]]
+  ],
+  english:[
+    [["Which word means ‘博物馆’?","museum","music","mountain"],["Choose the correct spelling.","restaurant","restarant","restraunt"],["Which word has a different meaning?","hospital","library","delicious"],["I borrow books from the ____.","library","playground","kitchen"],["The opposite of ‘difficult’ is ____.","easy","heavy","early"],["Which word is a subject at school?","science","sandwich","station"],["We use an umbrella on a ____ day.","rainy","hungry","busy"],["Choose the correct phrase.","do homework","make homework","play homework"],["‘usually’ means ____.","通常","从不","突然"]],
+    [["Which pair has the same ‘ea’ sound as teacher?","read and meat","bread and head","great and break"],["The ‘th’ in this word is voiced.","this","three","thin"],["Which word has a silent ‘e’?","plane","plan","plant"],["Which word has two syllables?","table","desk","book"],["The letter ‘c’ sounds /s/ in ____.","city","cat","cup"],["Which word rhymes with light?","night","late","let"],["The ‘oo’ sound in food is ____.","/uː/","/ʊ/","/ɒ/"],["Which word begins with /tʃ/?","China","school","thank"],["Where is the stress in ‘computer’?","second syllable","first syllable","last syllable"]],
+    [["A shop assistant asks ‘Can I help you?’ You say ____.","Yes, I'd like a blue T-shirt.","I am ten.","It is sunny."],["To ask the way to a museum, say ____.","How can I get to the museum?","How old is the museum?","What is a museum?"],["Your friend says ‘Thank you.’ You reply ____.","You're welcome.","Excuse me.","Never mind me."],["At a restaurant, you want water. Say ____.","May I have some water, please?","I have water yesterday.","Where water?"],["To invite a friend, say ____.","Would you like to play with me?","Do you played?","You must me."],["When you are late, say ____.","I'm sorry I'm late.","You're late.","Nice late."],["To ask about the weather, say ____.","What's the weather like?","How weather?","Where is weather?"],["On the phone, identify yourself with ____.","This is Qianxun speaking.","I am speak.","That is me phone."],["To ask permission, say ____.","May I open the window?","I opening window?","Must window open?"]],
+    [["Choose the correct sentence.","There are some books on the desk.","There is some books on the desk.","There are a book on the desk."],["He ____ football every Sunday.","plays","play","playing"],["What ____ your mother do?","does","do","is"],["We ____ to the zoo yesterday.","went","go","goes"],["There isn't ____ milk in the glass.","any","some","many"],["The cat is ____ the table and the chair.","between","under two","at"],["____ do you visit your grandparents? Once a week.","How often","How many","How long ago"],["My bag is ____ than yours.","heavier","heavy","heaviest"],["If it rains, we ____ at home.","will stay","stayed","stays yesterday"]],
+    [["Which sentence is easiest to read with correct meaning groups?","I like science / because it is interesting.","I / like science because / it is interesting.","I like / science because it / is."],["Choose a natural self-introduction.","I'm Qianxun. I'm interested in astronomy.","I Qianxun and astronomy.","My interested is astronomy."],["Which word should be stressed? ‘I want the BLUE one, not the red one.’","BLUE","the","one"],["A polite request should end with ____.","please","yesterday","never"],["Read a question with usually ____ intonation.","rising or question intonation","no voice","only shouting"],["Which sentence expresses an opinion?","I think this story is exciting.","The story has ten pages.","It was printed in May."],["Replace ‘football’ in ‘I like football’ with an activity.","playing the piano","blue","at seven"],["Which response continues a conversation?","Really? Why do you like it?","OK. Bye.","No words."],["Before recording, the best preparation is ____.","listen, mark pauses, then imitate","speak as fast as possible","ignore pronunciation"]]
+  ]
+};
+
+function generatedQuestions(subject,chapter){
+  if(advancedData[subject]){const source=advancedData[subject][chapter],result=source.map(x=>q(x[0],x.slice(1),0,`答案是“${x[1]}”。请结合本模块知识点再读一遍。`));for(let i=0;i<8;i++){const x=source[i%source.length],answer=x[1],wrong=x.slice(2);result.push(q(`${x[0]}（变式 ${i+1}）`,[answer,...wrong.reverse()],0,`正确答案是“${answer}”。变式题考查同一教材能力点，但题目顺序和表达不同。`))}return result}
+  const title=subjects[subject].chapters[chapter][0],base=[];
+  for(let i=0;i<12;i++){
+    if(subject==="math"){const a=12+chapter*7+i,b=3+i%6;if(chapter===0)base.push(q(`${a}×25＋${100-a}×25＝？`,["2500",String(a*25),"10000"],0,"运用乘法分配律：(a+b)×25=100×25。"));else if(chapter===1)base.push(q(`把${i+2}米长的绳子平均分成${b}段，每段占全长的？`,[`1/${b}`,`${i+2}/${b}`,`${b}/${i+2}`],0,"问占全长的几分之几，只看平均分成的份数。"));else if(chapter===2)base.push(q(`长方形长${a}米、宽${b}米，面积是？`,[`${a*b}平方米`,`${2*(a+b)}平方米`,`${a+b}米`],0,"长方形面积=长×宽。"));else if(chapter===3)base.push(q(`${i+2}.${i}千米等于多少米？`,[`${(i+2)*1000+i*100}米`,`${i+2+i}米`,`${(i+2)*100+i}米`],0,"1千米=1000米，小数部分也要乘1000。"));else base.push(q(`每本笔记本${b}元，买${i+3}本后付200元，应找回？`,[`${200-b*(i+3)}元`,`${b*(i+3)}元`,`${200-b}元`],0,"先算总价，再用付款金额减总价。"));}
+    else if(subject==="science")base.push(q(`${title}探究中，下面哪项最符合科学方法？`,["记录证据并允许复查","只选择支持猜想的信息","把传说直接当结论"],0,"科学判断依靠可检查的证据。"));
+    else base.push(q(`${title}任务中，哪种做法体现了清晰的计算思维？`,["先分解问题，再测试每一步","一次写完且不测试","发现错误就删除作品"],0,"分解、执行和测试是计算思维的重要过程。"));
+  }return base;
+}
+
+Object.entries(quizzes).forEach(([subject,chapters])=>chapters.forEach((items,chapter)=>{items.forEach((item,i)=>{item.id=`${subject}-${chapter}-base-${i}`;item.chapter=chapter});generatedQuestions(subject,chapter).forEach((item,i)=>{item.id=`${subject}-${chapter}-adv-${i}`;item.chapter=chapter;items.push(item)});let extra=0;while(items.length<20){const seed=generatedQuestions(subject,chapter)[extra%generatedQuestions(subject,chapter).length],item={...seed,o:[...seed.o],id:`${subject}-${chapter}-extra-${extra}`,chapter,q:`${seed.q} · 进阶${extra+1}`};items.push(item);extra++}}));
+
 const words = [
   ["school","/skuːl/","学校"],["library","/ˈlaɪbreri/","图书馆"],["teacher","/ˈtiːtʃə(r)/","老师"],
   ["breakfast","/ˈbrekfəst/","早餐"],["weather","/ˈweðə(r)/","天气"],["favorite","/ˈfeɪvərɪt/","最喜欢的"],
@@ -68,19 +101,20 @@ const words = [
 ];
 
 const daily = [
-  {subject:"english",chapter:0,title:"听音找单词",desc:"辨认 3 个校园高频词，听准再选择。",time:"6 分钟"},
-  {subject:"math",chapter:0,title:"计算热身赛",desc:"用巧算完成三道基础题，找回计算手感。",time:"8 分钟"},
-  {subject:"chinese",chapter:2,title:"古诗接龙",desc:"读诗句、找下句，复习熟悉的古诗。",time:"6 分钟"}
+  {subject:"english",chapter:0,title:"听音找单词",desc:"完成 10 道校园与日常词汇听辨题，可反复播放发音。",time:"10 分钟"},
+  {subject:"math",chapter:0,title:"计算思维挑战",desc:"完成 10 道运算律与五年级衔接题，练习巧算与推理。",time:"12 分钟"},
+  {subject:"chinese",chapter:2,title:"古诗理解挑战",desc:"完成 10 道诗句、作者、情感和表达理解题。",time:"10 分钟"}
 ];
 
-const defaultState = {stars:0,completed:[],subjectDone:{chinese:0,math:0,english:0,science:0,coding:0},wishes:[],lastDate:"",streak:1};
+const defaultState = {stars:0,completed:[],subjectDone:{chinese:0,math:0,english:0,science:0,coding:0},wishes:[],mistakes:{},lastSets:{},lastDate:"",streak:1};
 let state = loadState();
 let activeCourse = "chinese";
+let activeMistakeSubject = "chinese";
 let englishMode = "words";
 let quiz = null;
 
 function loadState(){
-  try{const saved=JSON.parse(localStorage.getItem("grade5Adventure")||"{}");return {...defaultState,...saved,subjectDone:{...defaultState.subjectDone,...(saved.subjectDone||{})},wishes:Array.isArray(saved.wishes)?saved.wishes:[]};}catch{return {...defaultState,subjectDone:{...defaultState.subjectDone},wishes:[]};}
+  try{const saved=JSON.parse(localStorage.getItem("grade5Adventure")||"{}");return {...defaultState,...saved,subjectDone:{...defaultState.subjectDone,...(saved.subjectDone||{})},wishes:Array.isArray(saved.wishes)?saved.wishes:[],mistakes:saved.mistakes||{},lastSets:saved.lastSets||{}};}catch{return {...defaultState,subjectDone:{...defaultState.subjectDone},wishes:[],mistakes:{},lastSets:{}};}
 }
 function saveState(){localStorage.setItem("grade5Adventure",JSON.stringify(state));renderStats();}
 function iconSpeaker(){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12.5-.8a5.4 5.4 0 0 1 0 7.6M19 5a9.4 9.4 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'}
@@ -91,6 +125,7 @@ function showView(id){
   window.scrollTo({top:0,behavior:"smooth"});
   if(id==="progress")renderStats();
   if(id==="wishes")renderWishes();
+  if(id==="mistakes")renderMistakes();
 }
 document.querySelectorAll("[data-view]").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.view)));
 document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.go)));
@@ -127,7 +162,7 @@ function renderEnglish(){
   document.querySelectorAll("[data-english]").forEach(b=>b.onclick=()=>{englishMode=b.dataset.english;renderEnglish()});
   const box=document.getElementById("englishWorkbench");
   if(englishMode==="words"){
-    box.innerHTML=`<div class="section-heading"><div><span class="section-kicker">本周 9 词</span><h2>校园与日常高频词</h2></div><button class="speak-btn" id="speakAll">${iconSpeaker()}连续听</button></div><div class="word-deck">${words.map((w,i)=>`<article class="word-card"><strong>${w[0]}</strong><div class="phonetic">${w[1]}</div><p>${w[2]}</p><button class="speak-btn" data-speak="${w[0]}">${iconSpeaker()}听发音</button></article>`).join("")}</div>`;
+    box.innerHTML=`<div class="section-heading"><div><span class="section-kicker">本周 9 词</span><h2>校园与日常高频词</h2></div><button class="speak-btn" id="speakAll">${iconSpeaker()}连续听</button></div><div class="word-deck">${words.map((w,i)=>`<article class="word-card">${englishVisuals[w[0]]?`<img src="${imageUrl(englishVisuals[w[0]],"square")}" alt="${w[2]}的场景图片" loading="lazy">`:""}<strong>${w[0]}</strong><div class="phonetic">${w[1]}</div><p>${w[2]}</p><button class="speak-btn" data-speak="${w[0]}">${iconSpeaker()}听发音</button></article>`).join("")}</div>`;
     document.querySelectorAll("[data-speak]").forEach(b=>b.onclick=()=>speak(b.dataset.speak));
     document.getElementById("speakAll").onclick=()=>speakSequence(words.map(w=>w[0]));
   }else if(englishMode==="sounds"){
@@ -135,9 +170,11 @@ function renderEnglish(){
     document.getElementById("soundDemo").onclick=()=>speakSequence(["ship","fish","shop"]);
     document.querySelectorAll("[data-soundword]").forEach(b=>b.onclick=()=>{speak(b.dataset.soundword);toast(b.dataset.soundword==="ship"?"找对了！ship 含有 sh 的发音":"再听一次，注意开头的声音")});
   }else{
-    box.innerHTML=`<div class="scene-title"><div><span class="section-kicker">场景 01 · 新同学见面</span><h2>Introduce yourself</h2></div><button class="speak-btn" id="playDialogue">${iconSpeaker()}播放对话</button></div><div class="dialogue-box"><div class="chat-row"><span class="avatar">A</span><div class="bubble"><strong>Hi! What's your name?</strong><span>你好！你叫什么名字？</span></div></div><div class="chat-row right"><span class="avatar">B</span><div class="bubble"><strong>My name is Leo. Nice to meet you.</strong><span>我叫 Leo。很高兴认识你。</span></div></div><div class="chat-row"><span class="avatar">A</span><div class="bubble"><strong>Nice to meet you, too. What do you like?</strong><span>我也很高兴认识你。你喜欢什么？</span></div></div><div class="chat-row right"><span class="avatar">B</span><div class="bubble"><strong>I like science and football.</strong><span>我喜欢科学和足球。</span></div></div></div><p><strong>轮到你：</strong>把名字和爱好换成自己的，补全句子。</p><div class="practice-input"><input id="dialogueAnswer" aria-label="输入英语回答" placeholder="My name is ... I like ..."><button id="checkDialogue">完成挑战</button></div>`;
+    const target="My name is Qianxun. I like science and astronomy.";
+    box.innerHTML=`<div class="scene-title"><div><span class="section-kicker">场景 01 · 新同学见面</span><h2>Introduce yourself</h2></div><button class="speak-btn" id="playDialogue">${iconSpeaker()}播放对话</button></div><div class="scene-picture"><img src="${imageUrl("Two 10-year-old Chinese school children meeting and talking in a bright primary school classroom, friendly expressions, backpacks and books, no text, polished colorful educational illustration","landscape_16_9")}" alt="两位小学生在教室见面交谈的场景"></div><div class="dialogue-box"><div class="chat-row"><span class="avatar">A</span><div class="bubble"><strong>Hi! What's your name?</strong><span>你好！你叫什么名字？</span></div></div><div class="chat-row right"><span class="avatar">B</span><div class="bubble"><strong>My name is Qianxun. Nice to meet you.</strong><span>我叫千寻。很高兴认识你。</span></div></div><div class="chat-row"><span class="avatar">A</span><div class="bubble"><strong>What do you like?</strong><span>你喜欢什么？</span></div></div><div class="chat-row right"><span class="avatar">B</span><div class="bubble"><strong>I like science and astronomy.</strong><span>我喜欢科学和天文。</span></div></div></div><div class="speaking-challenge"><span class="section-kicker">开口挑战 · 90分通过</span><h3>${target}</h3><p>先听示范，再点击录音。浏览器会识别朗读内容并给出练习分。</p><div class="record-actions"><button class="speak-btn" id="speakTarget">${iconSpeaker()}听示范</button><button class="record-btn" id="recordTarget">开始录音</button></div><div class="speech-result" id="speechResult">等待千寻小朋友开口……</div></div>`;
     document.getElementById("playDialogue").onclick=()=>speakSequence(["Hi! What's your name?","My name is Leo. Nice to meet you.","Nice to meet you, too. What do you like?","I like science and football."]);
-    document.getElementById("checkDialogue").onclick=()=>{const v=document.getElementById("dialogueAnswer").value.trim();if(v.length<8)return toast("千寻小朋友，再写完整一点，可以用 My name is ... I like ...");award("dialogue-first","english",5);toast("千寻小朋友表达完成！现在大声读一遍吧")};
+    document.getElementById("speakTarget").onclick=()=>speak(target);
+    document.getElementById("recordTarget").onclick=()=>startSpeakingChallenge(target);
   }
 }
 
@@ -147,31 +184,57 @@ function speak(text){
 }
 function speakSequence(list){let i=0;function next(){if(i>=list.length)return;const u=new SpeechSynthesisUtterance(list[i++]);u.lang="en-US";u.rate=.76;u.onend=()=>setTimeout(next,350);speechSynthesis.speak(u)}speechSynthesis.cancel();next()}
 
-function startQuiz(subject,chapter,taskId){quiz={subject,chapter,taskId,index:0,correct:0,locked:false};document.getElementById("quizModal").hidden=false;document.body.style.overflow="hidden";renderQuestion()}
+function normalizeText(text){return text.toLowerCase().replace(/[^a-z0-9\u4e00-\u9fa5]/g,"")}
+function similarity(a,b){a=normalizeText(a);b=normalizeText(b);if(!a||!b)return 0;let same=0;const pool=[...b];for(const c of a){const i=pool.indexOf(c);if(i>=0){same++;pool.splice(i,1)}}return Math.round(200*same/(a.length+b.length))}
+function startSpeakingChallenge(target){
+  const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition,result=document.getElementById("speechResult"),button=document.getElementById("recordTarget");
+  if(!Recognition){result.innerHTML="当前浏览器不支持语音识别。建议使用最新版 Chrome 或 Edge，并允许麦克风权限。";return}
+  const recognition=new Recognition();recognition.lang="en-US";recognition.interimResults=false;recognition.maxAlternatives=3;button.disabled=true;button.textContent="正在聆听…";result.textContent="请清楚地朗读完整句子。";
+  recognition.onresult=e=>{const best=[...e.results[0]].map(r=>({text:r.transcript,confidence:r.confidence||.7,match:similarity(r.transcript,target)})).sort((a,b)=>b.match-a.match)[0];const score=Math.min(100,Math.round(best.match*.85+best.confidence*15));result.innerHTML=`识别到：<strong>${escapeHtml(best.text)}</strong><br><b class="speech-score ${score>=90?"pass":""}">${score} 分</b> ${score>=90?"通过！":"还需达到 90 分，请听示范后再试。"}`;if(score>=90){award("speaking-90","english",5);confetti()}};
+  recognition.onerror=e=>{result.textContent=e.error==="not-allowed"?"没有麦克风权限，请在浏览器设置中允许后重试。":"没有听清，请靠近麦克风再试一次。"};
+  recognition.onend=()=>{button.disabled=false;button.textContent="重新录音"};recognition.start();
+}
+function shuffle(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function selectQuizItems(subject,chapter){const key=`${subject}-${chapter}`,pool=quizzes[subject][chapter],last=new Set(state.lastSets[key]||[]);let candidates=shuffle(pool.filter(item=>!last.has(item.id)));if(candidates.length<10)candidates=candidates.concat(shuffle(pool.filter(item=>last.has(item.id))));const selected=candidates.slice(0,10);state.lastSets[key]=selected.map(item=>item.id);saveState();return selected}
+function findQuestion(subject,id){for(let chapter=0;chapter<quizzes[subject].length;chapter++){const item=quizzes[subject][chapter].find(x=>x.id===id);if(item)return {...item,chapter}}return null}
+function englishTarget(item){const quoted=item.q.match(/[“‘']([A-Za-z]+)[”’']/);if(quoted)return quoted[1].toLowerCase();const known=Object.keys(englishVisuals).find(word=>item.q.toLowerCase().includes(word));return known||null}
+function questionMedia(item){if(quiz.subject!=="english")return "";const target=englishTarget(item);if(!target)return `<button class="question-audio" data-question-audio="${escapeHtml(item.q.replace(/[\u4e00-\u9fa5？?]/g," "))}">${iconSpeaker()}播放英语题目</button>`;const visual=englishVisuals[target];return `<div class="question-media">${visual?`<img src="${imageUrl(visual,"landscape_4_3")}" alt="${target} 对应的场景图片">`:""}<button class="question-audio" data-question-audio="${target}">${iconSpeaker()}播放 ${target} 发音</button></div>`}
+function startQuiz(subject,chapter,taskId,options={}){const items=options.items||selectQuizItems(subject,chapter);quiz={subject,chapter,taskId,index:0,correct:0,locked:false,items,isMistake:!!options.isMistake,listening:taskId.startsWith("daily-0")};document.getElementById("quizModal").hidden=false;document.body.style.overflow="hidden";renderQuestion()}
 function renderQuestion(){
-  const items=quizzes[quiz.subject][quiz.chapter],item=items[quiz.index],s=subjects[quiz.subject],chapterName=s.chapters[quiz.chapter][0];
+  const items=quiz.items,item=items[quiz.index],s=subjects[quiz.subject],chapterName=quiz.isMistake?"错题三连胜":s.chapters[quiz.chapter][0];
   document.getElementById("quizSubject").textContent=`千寻小朋友 · ${s.name} · ${chapterName}`;
   document.getElementById("quizSubject").style.color=s.color;
   document.getElementById("quizStep").textContent=`${quiz.index+1} / ${items.length}`;
-  document.getElementById("quizBody").innerHTML=`<h2 class="question-title" id="quizTitle">${item.q}</h2><div class="option-list">${item.o.map((o,i)=>`<button class="option-btn" data-option="${i}">${String.fromCharCode(65+i)}. ${o}</button>`).join("")}</div><div id="feedbackArea"></div>`;
+  document.getElementById("quizBody").innerHTML=`${questionMedia(item)}<h2 class="question-title" id="quizTitle">${item.q}</h2>${quiz.listening?`<button class="listen-question" id="listenQuestion">${iconSpeaker()}播放题目发音</button>`:""}<div class="option-list">${item.o.map((o,i)=>`<button class="option-btn" data-option="${i}">${String.fromCharCode(65+i)}. ${o}</button>`).join("")}</div><div id="feedbackArea"></div>`;
   document.querySelectorAll("[data-option]").forEach(b=>b.onclick=()=>answerQuestion(+b.dataset.option));
+  document.querySelectorAll("[data-question-audio]").forEach(b=>b.onclick=()=>speak(b.dataset.questionAudio));
+  if(quiz.listening){document.getElementById("listenQuestion").onclick=()=>speak(englishTarget(item)||item.o[item.a]);setTimeout(()=>speak(englishTarget(item)||item.o[item.a]),250)}
 }
 function answerQuestion(choice){
-  if(quiz.locked)return;quiz.locked=true;const item=quizzes[quiz.subject][quiz.chapter][quiz.index];
+  if(quiz.locked)return;quiz.locked=true;const item=quiz.items[quiz.index],correct=choice===item.a;
   document.querySelectorAll("[data-option]").forEach((b,i)=>{if(i===item.a)b.classList.add("correct");else if(i===choice)b.classList.add("wrong")});
-  if(choice===item.a)quiz.correct++;
-  const last=quiz.index===quizzes[quiz.subject][quiz.chapter].length-1;
-  document.getElementById("feedbackArea").innerHTML=`<div class="feedback"><strong>${choice===item.a?"千寻小朋友，回答正确！":"千寻小朋友，这题再记一记"}</strong><br>${item.e}</div><button class="next-btn" id="nextQuestion">${last?"查看结果":"下一题"}</button>`;
+  if(correct)quiz.correct++;updateMistake(item,correct);const last=quiz.index===quiz.items.length-1;
+  document.getElementById("feedbackArea").innerHTML=`<div class="feedback"><strong>${correct?"千寻小朋友，回答正确！":`千寻小朋友，这题已收进${subjects[quiz.subject].name}错题集${quiz.isMistake?"":"，扣 1 星"}`}</strong><br>${item.e}${quiz.isMistake&&correct?`<br>连续答对进度：${state.mistakes[item.id]?.streak||3} / 3`:""}</div><button class="next-btn" id="nextQuestion">${last?"查看结果":"下一题"}</button>`;
   document.getElementById("nextQuestion").onclick=()=>{if(last)finishQuiz();else{quiz.index++;quiz.locked=false;renderQuestion()}};
 }
+function updateMistake(item,correct){const record=state.mistakes[item.id];if(correct){if(record){record.streak=(record.streak||0)+1;if(record.streak>=3)delete state.mistakes[item.id]}}else{state.mistakes[item.id]={id:item.id,subject:quiz.subject,chapter:item.chapter??quiz.chapter,streak:0,wrongCount:(record?.wrongCount||0)+1,updatedAt:Date.now()};if(!quiz.isMistake)state.stars=Math.max(0,state.stars-1)}saveState()}
 function finishQuiz(){
-  const first=!state.completed.includes(quiz.taskId),earned=first?5:1;
-  award(quiz.taskId,quiz.subject,earned);confetti();
-  document.getElementById("quizBody").innerHTML=`<div class="result"><div class="result-star">★</div><h2>${quiz.correct===3?"千寻小朋友，全部答对！":"千寻小朋友，挑战完成！"}</h2><p>答对 ${quiz.correct} / 3 题，${first?`获得 ${earned} 颗能量星`:`复习奖励 ${earned} 颗星`}。</p><button class="primary-btn" id="finishQuiz">收下奖励</button></div>`;
+  const first=!state.completed.includes(quiz.taskId),earned=quiz.isMistake?0:first?5:1;if(!quiz.isMistake)award(quiz.taskId,quiz.subject,earned);else saveState();confetti();
+  document.getElementById("quizBody").innerHTML=`<div class="result"><div class="result-star">★</div><h2>${quiz.correct===quiz.items.length?"千寻小朋友，全部答对！":"千寻小朋友，挑战完成！"}</h2><p>答对 ${quiz.correct} / ${quiz.items.length} 题。${quiz.isMistake?"错题需要连续答对 3 次才能毕业。":`本轮完成奖励 ${earned} 星；答错扣星已即时计算。`}</p><button class="primary-btn" id="finishQuiz">完成</button></div>`;
   document.getElementById("finishQuiz").onclick=closeQuiz;
 }
 function award(id,subject,stars){
   const first=!state.completed.includes(id);if(first){state.completed.push(id);state.subjectDone[subject]=(state.subjectDone[subject]||0)+1}state.stars+=stars;state.lastDate=new Date().toDateString();saveState();renderDaily();
+}
+
+function renderMistakes(){
+  const records=Object.values(state.mistakes);document.getElementById("mistakeTotal").textContent=records.length;
+  document.getElementById("mistakeTabs").innerHTML=Object.entries(subjects).map(([id,s])=>{const count=records.filter(x=>x.subject===id).length;return `<button class="course-tab ${id===activeMistakeSubject?"active":""}" style="--tab-color:${s.color}" data-mistake-tab="${id}"><i style="background:${s.color}"></i>${s.name} ${count}</button>`}).join("");
+  document.querySelectorAll("[data-mistake-tab]").forEach(b=>b.onclick=()=>{activeMistakeSubject=b.dataset.mistakeTab;renderMistakes()});
+  const current=records.filter(x=>x.subject===activeMistakeSubject),board=document.getElementById("mistakeBoard");
+  if(!current.length){board.innerHTML=`<div class="empty-mistakes"><strong>${subjects[activeMistakeSubject].name}暂时没有错题</strong><p>继续认真思考，错题出现时我们再把它变成能力。</p></div>`;return}
+  board.innerHTML=`<div class="mistake-list">${current.map(record=>{const item=findQuestion(record.subject,record.id);if(!item)return "";return `<article class="mistake-card"><div><span>${subjects[record.subject].chapters[record.chapter]?.[0]||"综合练习"}</span><h3>${escapeHtml(item.q)}</h3><p>答错 ${record.wrongCount} 次 · 连续答对 ${record.streak||0}/3</p></div><div class="streak-pips">${[1,2,3].map(i=>`<i class="${i<=(record.streak||0)?"active":""}"></i>`).join("")}</div></article>`}).join("")}</div><button class="primary-btn mistake-practice" id="practiceMistakes">开始${subjects[activeMistakeSubject].name}错题复习</button>`;
+  document.getElementById("practiceMistakes").onclick=()=>{const items=current.map(r=>findQuestion(r.subject,r.id)).filter(Boolean).slice(0,10);startQuiz(activeMistakeSubject,items[0]?.chapter||0,`mistakes-${activeMistakeSubject}`,{items,isMistake:true})};
 }
 
 function renderWishes(){
@@ -199,6 +262,7 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape"&&quiz)closeQuiz()});
 
 function renderStats(){
   document.getElementById("starCount").textContent=state.stars;
+  if(document.getElementById("mistakeTotal")&&document.getElementById("mistakes")?.classList.contains("active"))renderMistakes();
   document.getElementById("totalDone").textContent=state.completed.length;
   document.getElementById("streakDays").textContent=state.streak;
   const levels=state.stars>=80?["知识领航员","已经点亮全部基础等级"]:state.stars>=40?["勇敢探索家",`再获得 ${80-state.stars} 颗星升级`]:state.stars>=20?["求知者",`再获得 ${40-state.stars} 颗星升级`]:["初出发",`再获得 ${20-state.stars} 颗星升级为求知者`];
@@ -217,7 +281,7 @@ function confetti(){const c=document.getElementById("confetti"),colors=["#2457d6
 
 document.getElementById("startToday").onclick=()=>{const next=daily.findIndex((_,i)=>!state.completed.includes(`daily-${i}`)),index=next<0?0:next,t=daily[index];startQuiz(t.subject,t.chapter,`daily-${index}`)};
 document.getElementById("wishForm").onsubmit=e=>{e.preventDefault();const title=document.getElementById("wishTitle").value.trim(),reason=document.getElementById("wishReason").value.trim();if(title.length<2)return toast("千寻小朋友，请把愿望写得再清楚一点");state.wishes.unshift({id:Date.now(),title,reason,stars:0,redeemed:false,createdAt:Date.now()});saveState();e.target.reset();renderWishes();confetti();toast("愿望已提交给萌萌妈咪")};
-document.getElementById("resetProgress").onclick=()=>{if(confirm("确定清空这台设备上的学习记录和愿望清单吗？此操作无法撤销。")){state={...defaultState,subjectDone:{...defaultState.subjectDone},wishes:[]};saveState();renderDaily();renderWishes();toast("学习记录和愿望清单已清空")}};
+document.getElementById("resetProgress").onclick=()=>{if(confirm("确定清空这台设备上的学习记录、错题和愿望清单吗？此操作无法撤销。")){state={...defaultState,subjectDone:{...defaultState.subjectDone},wishes:[],mistakes:{},lastSets:{}};saveState();renderDaily();renderWishes();renderMistakes();toast("本机学习记录已清空")}};
 
 const hour=new Date().getHours();document.getElementById("greeting").textContent=hour<11?"早上好，千寻小朋友":hour<18?"下午好，千寻小朋友":"晚上好，千寻小朋友";
-renderDaily();renderCourses();renderEnglish();renderWishes();renderStats();
+renderDaily();renderCourses();renderEnglish();renderWishes();renderMistakes();renderStats();

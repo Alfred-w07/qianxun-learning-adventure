@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2457d6">
+  <title>五年级成长探索站</title>
+  <link rel="preconnect" href="https://miaoda.feishu.cn">
+  <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <span class="cloud cloud-a"></span><span class="cloud cloud-b"></span>
+    <span class="star star-a"></span><span class="star star-b"></span><span class="star star-c"></span>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="回到首页">
+      <span class="brand-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 10h22a8 8 0 0 1 8 8v20H16a7 7 0 0 1-7-7V10Z" fill="#fff"/><path d="M16 10v28M16 17h15M16 24h12" fill="none" stroke="#2457d6" stroke-width="3" stroke-linecap="round"/></svg></span>
+      <span><strong>千寻成长探索站</strong><small>千寻的五年级预备营</small></span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <button class="nav-item active" data-view="home">今日任务</button>
+      <button class="nav-item" data-view="courses">五科地图</button>
+      <button class="nav-item" data-view="english">英语加油站</button>
+      <button class="nav-item" data-view="progress">成长记录</button>
+    </nav>
+    <div class="energy" title="完成练习可获得能量星">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2.8 6 6.5.8-4.8 4.5 1.3 6.5L12 16.6l-5.8 3.2 1.3-6.5-4.8-4.5 6.5-.8L12 2Z" fill="currentColor"/></svg>
+      <span id="starCount">0</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="view active" id="home" data-screen-label="今日任务">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">新学期倒计时 · 每天 25 分钟</span>
+          <h1><span id="greeting">你好，千寻小朋友</span><br>今天想解锁哪片知识大陆？</h1>
+          <p>复习一小步，开学一大步。完成 3 个短任务，就能点亮今天的探索徽章。</p>
+          <div class="hero-actions">
+            <button class="primary-btn" id="startToday">开始今日任务</button>
+            <button class="text-btn" data-go="courses">自己选一科 <span>→</span></button>
+          </div>
+        </div>
+        <div class="hero-world" aria-label="五科学习星球动画">
+          <div class="orbit orbit-one"><span class="planet planet-blue">语</span></div>
+          <div class="orbit orbit-two"><span class="planet planet-orange">数</span></div>
+          <div class="orbit orbit-three"><span class="planet planet-green">英</span></div>
+          <div class="rocket"><svg viewBox="0 0 90 120" aria-hidden="true"><path d="M45 5C23 23 20 59 28 82h34c8-23 5-59-17-77Z" fill="#fff" stroke="#17366f" stroke-width="4"/><circle cx="45" cy="43" r="11" fill="#68c7f7" stroke="#17366f" stroke-width="4"/><path d="M29 69 14 85v18l20-15M61 69l15 16v18L56 88" fill="#ffb34c" stroke="#17366f" stroke-width="4" stroke-linejoin="round"/><path d="M36 86c0 12 4 22 9 28 5-6 9-16 9-28" fill="#ff654f"/></svg></div>
+        </div>
+      </div>
+
+      <section class="section-wrap today-section">
+        <div class="section-heading">
+          <div><span class="section-kicker">今日路线</span><h2>三个任务，刚刚好</h2></div>
+          <div class="daily-progress"><span id="dailyDone">0 / 3 已完成</span><div class="mini-bar"><i id="dailyBar"></i></div></div>
+        </div>
+        <div class="task-grid" id="dailyTasks"></div>
+      </section>
+
+      <section class="section-wrap parent-note">
+        <div class="note-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 7h25a5 5 0 0 1 5 5v29H14a5 5 0 0 1-5-5V7Z" fill="#fff"/><path d="M16 7v34M21 16h12M21 23h10M21 30h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div>
+        <div><strong>给家长的小提示</strong><p>每次学习控制在 15–25 分钟。先让孩子独立尝试，再看解析；连续完成比一次做很多更重要。</p></div>
+      </section>
+    </section>
+
+    <section class="view" id="courses" data-screen-label="五科地图">
+      <div class="page-head"><span class="eyebrow">欢迎千寻小朋友来到知识地图</span><h1>五片大陆，等你探索</h1><p>千寻，语文、数学、英语复习 1–4 年级核心内容；科学和编程从零起步。</p></div>
+      <div class="course-filter" role="tablist" aria-label="选择学科" id="courseTabs"></div>
+      <div class="course-stage" id="courseStage"></div>
+    </section>
+
+    <section class="view" id="english" data-screen-label="英语加油站">
+      <div class="page-head english-head"><span class="eyebrow">欢迎千寻小朋友来到英语加油站</span><h1>听得懂，敢开口，会使用</h1><p>千寻，从高频单词开始，练发音、辨意思，再放进真实生活对话里。</p></div>
+      <div class="english-layout">
+        <aside class="english-menu" id="englishMenu"></aside>
+        <div class="english-workbench" id="englishWorkbench"></div>
+      </div>
+    </section>
+
+    <section class="view" id="progress" data-screen-label="成长记录">
+      <div class="page-head"><span class="eyebrow">欢迎千寻小朋友查看成长记录</span><h1>千寻的每一次练习都算数</h1><p>记录只保存在这台设备的浏览器中，不需要注册，也不会上传个人信息。</p></div>
+      <div class="progress-summary">
+        <div class="level-card"><span>当前等级</span><strong id="levelName">初出发</strong><p id="levelHint">再获得 20 颗星，升级为求知者</p></div>
+        <div class="ring-card"><div class="progress-ring" id="progressRing"><span><strong id="totalDone">0</strong><small>完成练习</small></span></div></div>
+        <div class="streak-card"><span>连续学习</span><strong><b id="streakDays">1</b> 天</strong><div class="week-dots" id="weekDots"></div></div>
+      </div>
+      <div class="subject-progress" id="subjectProgress"></div>
+      <div class="badge-section"><div class="section-heading"><div><span class="section-kicker">成就柜</span><h2>我的探索徽章</h2></div></div><div class="badge-grid" id="badgeGrid"></div></div>
+      <button class="reset-btn" id="resetProgress">清空本机学习记录</button>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="quizModal" hidden>
+    <section class="quiz-modal" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+      <button class="close-btn" id="closeQuiz" aria-label="关闭练习">×</button>
+      <div class="quiz-top"><span id="quizSubject">学科</span><div class="quiz-step" id="quizStep">1 / 3</div></div>
+      <div id="quizBody"></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+  <script src="app.js"></script>
+</body>
+</html>

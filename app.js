@@ -1,9 +1,9 @@
 const subjects = {
-  chinese: {name:"语文",short:"语",color:"#d95752",soft:"#fff0ef",edition:"人教版 · 1–4 年级复习",intro:"从字词、古诗到阅读表达，把学过的知识重新串成线。",chapters:[
+  chinese: {name:"语文",short:"语",color:"#d95752",soft:"#fff0ef",edition:"统编人教版 · 4–5 年级衔接",intro:"从字词、古诗到阅读表达，把学过的知识重新串成线。",chapters:[
     ["字词寻宝","多音字、形近字、成语运用"],["句子工坊","扩句缩句、修辞与病句"],["古诗时光机","重点古诗背诵与理解"],["阅读侦探社","概括内容、寻找关键信息"],["表达小作家","写人、记事与观察日记"]]},
-  math: {name:"数学",short:"数",color:"#e88a25",soft:"#fff4e5",edition:"苏教版 · 1–4 年级复习",intro:"数与运算、图形、单位、解决问题，逐步找回计算手感。",chapters:[
+  math: {name:"数学",short:"数",color:"#e88a25",soft:"#fff4e5",edition:"苏教版 · 4–5 年级衔接",intro:"数与运算、图形、单位、解决问题，逐步找回计算手感。",chapters:[
     ["计算训练营","四则运算与运算律"],["分数初相识","分数意义与简单比较"],["图形实验室","周长、面积与角"],["单位换算站","长度、质量、时间与面积"],["应用题拆解","读题、画图、分步解决"]]},
-  english: {name:"英语",short:"英",color:"#2ca86f",soft:"#e8f8f0",edition:"人教版 · 1–4 年级复习",intro:"先听准、再说对，把单词放进学校、家庭和购物场景。",chapters:[
+  english: {name:"英语",short:"英",color:"#2ca86f",soft:"#e8f8f0",edition:"人教版 PEP · 4–5 年级衔接",intro:"先听准、再说对，把单词放进学校、家庭和购物场景。",chapters:[
     ["高频词卡","听音、认词、拼写"],["自然拼读","字母与常见发音组合"],["情景对话","问候、介绍、购物、问路"],["句型积木","一般疑问句与特殊疑问句"],["开口挑战","跟读、替换与角色扮演"]]},
   science: {name:"自然科学",short:"科",color:"#257c86",soft:"#e9f7f8",edition:"从 0 开始 · 科学、人文与想象",intro:"从证据出发，探索三星堆、宇宙、地球、生命与人类历史。",chapters:[
     ["科学侦探社","观察、提问、实验与证据"],["三星堆寻宝","青铜面具、考古与古蜀文明"],["宇宙来信","太阳系、恒星与外星生命"],["天文观测站","月相、星座与望远镜"],["地理探险家","地图、地形、气候与家乡"],["历史时光机","时间线、文物与文明故事"],["生命小世界","植物、动物与生态关系"]]},
@@ -11,7 +11,7 @@ const subjects = {
     ["指令与顺序","让角色按步骤行动"],["循环魔法","发现重复，减少指令"],["条件判断","如果发生，就做什么"],["变量盒子","用名字保存变化的数据"],["创意小项目","迷宫、问答和动画故事"]]}
 };
 
-const q=(question,options,answer,explain)=>({q:question,o:options,a:answer,e:explain});
+const q=(question,options,answer,explain,meta={})=>({q:question,o:options,a:answer,e:explain,...meta});
 const quizzes = {
   chinese:[
     [q("“辨”和“辩”中，与说话争论有关的是？",["辨别","辩论","花瓣"],1,"“辩”中间是言字旁，和说话、争论有关。"),q("“教”在“教室”中的读音是？",["jiāo","jiào","jiǎo"],1,"表示场所或教育时读 jiào。"),q("哪个成语表示非常安静？",["鸦雀无声","五颜六色","争先恐后"],0,"“鸦雀无声”形容安静得连鸟叫声都没有。")],
@@ -82,17 +82,69 @@ const advancedData={
   ]
 };
 
+// 题型依据：苏教版五年级“分数的意义和性质”“多边形的面积”单元，
+// 参考公开展示的合肥期末质量抽测题型。题面已为本站重新组织，不复制整套商业试卷。
+const reviewedMathQuestions={
+  1:[
+    q("一盒有12枚彩色夹子，其中5枚是蓝色。蓝色夹子占这盒夹子的几分之几？",["5/12","5/7","7/12","12/5"],0,"把12枚夹子看作单位“1”，蓝色有5份，占5/12。"),
+    q("五（1）班有女生24人、男生21人。女生人数占全班人数的几分之几？",["8/15","7/15","24/21","21/24"],0,"全班有45人，24÷45=24/45=8/15。"),
+    q("在数轴0到1之间平均分成8份，第3个刻度表示什么数？",["3/8","3/5","5/8","8/3"],0,"每一小格是1/8，第3个刻度是3/8。",{visual:{type:"numberLine",parts:8,mark:3}}),
+    q("把3升果汁平均倒入5个相同的水壶，每壶有多少升？",["3/5升","1/5升","5/3升","2/5升"],0,"3÷5=3/5（升），这里分数表示具体的量。"),
+    q("一节课40分钟，动手实验用了15分钟。实验时间占整节课的几分之几？",["3/8","5/8","15/25","8/3"],0,"15÷40=15/40=3/8。"),
+    q("同样大小的两块菜地，第一块种番茄占3/5，第二块种番茄占5/8。哪块种番茄的面积大？",["第二块","第一块","一样大","无法比较"],0,"3/5=24/40，5/8=25/40，所以5/8更大。"),
+    q("7/9的分数单位是什么？",["1/9","1/7","7/9","9"],0,"分母是9，分数单位是1/9。"),
+    q("下面哪个分数与0.75相等？",["3/4","7/5","1/4","4/3"],0,"0.75=75/100=3/4。"),
+    q("把8块同样大小的巧克力看作单位“1”，平均分成4份，每份有2块。每份占整体的多少？",["1/4","2/4","1/2块","4/8块"],0,"按份数看，每份是整体的1/4；2块是每份的数量。"),
+    q("下面哪一个是假分数？",["9/7","5/8","3/10","6/11"],0,"分子大于或等于分母的分数是假分数。"),
+    q("11/4化成带分数是？",["2又3/4","3又1/4","2又1/4","1又3/4"],0,"11÷4=2余3，所以是2又3/4。"),
+    q("把6/10约成最简分数，结果是？",["3/5","6/5","2/5","1/2"],0,"分子、分母同时除以2，得到3/5。"),
+    q("比较5/6和7/9，正确的是？",["5/6＞7/9","5/6＜7/9","两者相等","无法比较"],0,"通分后5/6=15/18，7/9=14/18。"),
+    q("合肥某天日照时间约占全天的5/12。全天24小时，日照约多少小时？",["10小时","5小时","12小时","20小时"],0,"24÷12×5=10（小时）。"),
+    q("一本故事书，周一读了全书的1/4，周二读了全书的3/8。两天一共读了全书的多少？",["5/8","4/12","1/2","3/4"],0,"1/4=2/8，2/8+3/8=5/8。"),
+    q("一杯牛奶先喝去2/7，又喝去1/7，还剩这杯牛奶的多少？",["4/7","3/7","5/7","1/7"],0,"1-2/7-1/7=4/7。"),
+    q("下列说法正确的是？",["分数既可以表示关系，也可以表示具体的量","分母越大分数一定越大","所有假分数都大于1","分子和分母可同时加2而大小不变"],0,"分数可表示部分与整体的关系，也可带单位表示具体的量。")
+  ],
+  2:[
+    q("标准网球场长36米、宽18米。场地占地面积是多少平方米？",["648平方米","108平方米","324平方米","54平方米"],0,"长方形面积=长×宽，36×18=648（平方米）。",{visual:{type:"court",length:36,width:18}}),
+    q("学校在一块底20米、高12米的平行四边形空地铺草坪。草坪面积是多少？",["240平方米","120平方米","64平方米","320平方米"],0,"平行四边形面积=底×高，20×12=240。",{visual:{type:"parallelogram",base:20,height:12,label:"草坪"}}),
+    q("三角形交通标志牌底80厘米、高60厘米，正面面积是多少？",["2400平方厘米","4800平方厘米","280平方厘米","140平方厘米"],0,"三角形面积=底×高÷2。",{visual:{type:"triangle",base:80,height:60,label:"交通标志"}}),
+    q("梯形花坛上底8米、下底14米、高6米，面积是多少？",["66平方米","132平方米","84平方米","44平方米"],0,"梯形面积=(8+14)×6÷2=66。",{visual:{type:"trapezoid",top:8,bottom:14,height:6,label:"花坛"}}),
+    q("一间教室长9米、宽7米，要铺每块1平方米的地砖，至少需要多少块？",["63块","32块","16块","126块"],0,"教室地面面积是9×7=63平方米。",{visual:{type:"room",length:9,width:7}}),
+    q("长方形菜地长24米、宽15米，四周围一圈篱笆。需要篱笆多少米？",["78米","360米","39米","48米"],0,"求围栏长度是求周长：(24+15)×2=78米。",{visual:{type:"garden",length:24,width:15}}),
+    q("一个平行四边形与一个三角形等底等高。平行四边形面积是48平方米，三角形面积是？",["24平方米","48平方米","96平方米","12平方米"],0,"等底等高的三角形面积是平行四边形的一半。"),
+    q("边长200米的正方形果园占地多少公顷？",["4公顷","40公顷","400公顷","2公顷"],0,"200×200=40000平方米=4公顷。",{visual:{type:"garden",length:200,width:200}}),
+    q("一块梯形宣传牌上底1.2米、下底1.8米、高0.8米。正反两面都刷漆，刷漆面积是多少？",["2.4平方米","1.2平方米","3平方米","4.8平方米"],0,"一面(1.2+1.8)×0.8÷2=1.2平方米，两面2.4平方米。",{visual:{type:"trapezoid",top:1.2,bottom:1.8,height:0.8,label:"宣传牌"}}),
+    q("把长10厘米、宽6厘米的长方形框架拉成平行四边形，下面一定不变的是？",["周长","面积","高","角的大小"],0,"四条边长度不变，所以周长不变；高和面积可能改变。"),
+    q("一个平行四边形底增加3厘米，高不变，面积增加24平方厘米。它的高是多少？",["8厘米","21厘米","27厘米","72厘米"],0,"增加部分面积=增加的底×高，24÷3=8厘米。"),
+    q("两条平行线之间有等底的平行四边形和三角形，前者面积是30平方厘米，后者面积是？",["15平方厘米","30平方厘米","60平方厘米","无法确定"],0,"两图等底且在同一组平行线间，所以等高；三角形面积是其一半。"),
+    q("一条宽2米的小路穿过长30米、宽20米的长方形草地，并与长边平行。小路面积是多少？",["60平方米","40平方米","100平方米","600平方米"],0,"小路长30米、宽2米，面积30×2=60平方米。"),
+    q("估计一片不规则树叶的面积，较合适的方法是？",["放在方格纸上数整格和不满整格","只量最长边","计算周长后当面积","用直尺量厚度"],0,"方格法可估测不规则图形的面积。"),
+    q("一个三角形面积是36平方厘米，底是9厘米，高是多少？",["8厘米","4厘米","18厘米","6厘米"],0,"高=面积×2÷底=36×2÷9=8厘米。"),
+    q("梯形上下底之和是25米，高8米，面积是多少？",["100平方米","200平方米","33平方米","50平方米"],0,"梯形面积=上下底之和×高÷2=25×8÷2=100。"),
+    q("安徽省面积约14万平方千米。这里用“平方千米”是因为它适合计量什么？",["较大地区的面积","课桌面积","铅笔长度","水杯容量"],0,"省、市等较大区域通常用平方千米计量面积。")
+  ]
+};
+
 function generatedQuestions(subject,chapter){
-  if(advancedData[subject]){const source=advancedData[subject][chapter],result=source.map(x=>q(x[0],x.slice(1),0,`答案是“${x[1]}”。请结合本模块知识点再读一遍。`));for(let i=0;i<8;i++){const x=source[i%source.length],answer=x[1],wrong=x.slice(2);result.push(q(`${x[0]}（变式 ${i+1}）`,[answer,...wrong.reverse()],0,`正确答案是“${answer}”。变式题考查同一教材能力点，但题目顺序和表达不同。`))}return result}
+  if(subject==="math"&&reviewedMathQuestions[chapter])return reviewedMathQuestions[chapter];
+  if(advancedData[subject])return advancedData[subject][chapter].map(x=>q(x[0],x.slice(1),0,`答案是“${x[1]}”。请结合本模块知识点再读一遍。`));
   const title=subjects[subject].chapters[chapter][0],base=[];
   for(let i=0;i<12;i++){
-    if(subject==="math"){const a=12+chapter*7+i,b=3+i%6;if(chapter===0)base.push(q(`${a}×25＋${100-a}×25＝？`,["2500",String(a*25),"10000"],0,"运用乘法分配律：(a+b)×25=100×25。"));else if(chapter===1)base.push(q(`把${i+2}米长的绳子平均分成${b}段，每段占全长的？`,[`1/${b}`,`${i+2}/${b}`,`${b}/${i+2}`],0,"问占全长的几分之几，只看平均分成的份数。"));else if(chapter===2)base.push(q(`长方形长${a}米、宽${b}米，面积是？`,[`${a*b}平方米`,`${2*(a+b)}平方米`,`${a+b}米`],0,"长方形面积=长×宽。"));else if(chapter===3)base.push(q(`${i+2}.${i}千米等于多少米？`,[`${(i+2)*1000+i*100}米`,`${i+2+i}米`,`${(i+2)*100+i}米`],0,"1千米=1000米，小数部分也要乘1000。"));else base.push(q(`每本笔记本${b}元，买${i+3}本后付200元，应找回？`,[`${200-b*(i+3)}元`,`${b*(i+3)}元`,`${200-b}元`],0,"先算总价，再用付款金额减总价。"));}
+    if(subject==="math"){const a=12+chapter*7+i,b=3+i%6;if(chapter===0)base.push(q(`${a}×25＋${100-a}×25＝？`,["2500",String(a*25),"10000"],0,"运用乘法分配律：(a+b)×25=100×25。"));else if(chapter===3)base.push(q(`${i+2}.${i}千米等于多少米？`,[`${(i+2)*1000+i*100}米`,`${i+2+i}米`,`${(i+2)*100+i}米`],0,"1千米=1000米，小数部分也要乘1000。"));else base.push(q(`每本笔记本${b}元，买${i+3}本后付200元，应找回？`,[`${200-b*(i+3)}元`,`${b*(i+3)}元`,`${200-b}元`],0,"先算总价，再用付款金额减总价。"));}
     else if(subject==="science")base.push(q(`${title}探究中，下面哪项最符合科学方法？`,["记录证据并允许复查","只选择支持猜想的信息","把传说直接当结论"],0,"科学判断依靠可检查的证据。"));
     else base.push(q(`${title}任务中，哪种做法体现了清晰的计算思维？`,["先分解问题，再测试每一步","一次写完且不测试","发现错误就删除作品"],0,"分解、执行和测试是计算思维的重要过程。"));
   }return base;
 }
 
-Object.entries(quizzes).forEach(([subject,chapters])=>chapters.forEach((items,chapter)=>{items.forEach((item,i)=>{item.id=`${subject}-${chapter}-base-${i}`;item.chapter=chapter});generatedQuestions(subject,chapter).forEach((item,i)=>{item.id=`${subject}-${chapter}-adv-${i}`;item.chapter=chapter;items.push(item)});let extra=0;while(items.length<20){const seed=generatedQuestions(subject,chapter)[extra%generatedQuestions(subject,chapter).length],item={...seed,o:[...seed.o],id:`${subject}-${chapter}-extra-${extra}`,chapter,q:`${seed.q} · 进阶${extra+1}`};items.push(item);extra++}}));
+Object.entries(quizzes).forEach(([subject,chapters])=>chapters.forEach((items,chapter)=>{
+  items.forEach((item,i)=>{item.id=`${subject}-${chapter}-base-${i}`;item.chapter=chapter});
+  generatedQuestions(subject,chapter).forEach((item,i)=>{
+    if(items.some(existing=>existing.q===item.q))return;
+    item.id=`${subject}-${chapter}-reviewed-${i}`;
+    item.chapter=chapter;
+    items.push(item);
+  });
+}));
 
 const words = [
   ["school","/skuːl/","学校"],["library","/ˈlaɪbreri/","图书馆"],["teacher","/ˈtiːtʃə(r)/","老师"],
@@ -178,11 +230,33 @@ function renderEnglish(){
   }
 }
 
-function speak(text){
-  if(!("speechSynthesis" in window))return toast("当前浏览器不支持语音播放");
-  speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=.78;speechSynthesis.speak(u);
+let englishVoice=null;
+function loadEnglishVoice(){
+  if(!("speechSynthesis" in window))return null;
+  const voices=speechSynthesis.getVoices();
+  englishVoice=voices.find(v=>/^en-US/i.test(v.lang))||voices.find(v=>/^en-GB/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang))||null;
+  return englishVoice;
 }
-function speakSequence(list){let i=0;function next(){if(i>=list.length)return;const u=new SpeechSynthesisUtterance(list[i++]);u.lang="en-US";u.rate=.76;u.onend=()=>setTimeout(next,350);speechSynthesis.speak(u)}speechSynthesis.cancel();next()}
+if("speechSynthesis" in window){loadEnglishVoice();speechSynthesis.addEventListener?.("voiceschanged",loadEnglishVoice)}
+function speak(text,onEnd){
+  if(!("speechSynthesis" in window)||!("SpeechSynthesisUtterance" in window)){toast("当前浏览器没有可用的英语语音，请改用 Chrome 或 Edge");return false}
+  const content=String(text||"").trim();
+  if(!content){toast("这道题没有可播放的英文内容");return false}
+  speechSynthesis.cancel();
+  speechSynthesis.resume();
+  const u=new SpeechSynthesisUtterance(content);
+  u.lang=englishVoice?.lang||"en-US";
+  u.voice=loadEnglishVoice();
+  u.rate=.78;
+  u.volume=1;
+  u.onstart=()=>toast("正在播放英语发音");
+  u.onend=()=>onEnd?.();
+  u.onerror=()=>toast("发音播放失败，请检查手机媒体音量，或改用最新版 Chrome");
+  // iOS/Safari 在 cancel 后立即 speak 可能吞掉播放，短延时仍保持在点击手势调用链内。
+  window.setTimeout(()=>{speechSynthesis.resume();speechSynthesis.speak(u)},40);
+  return true;
+}
+function speakSequence(list){let i=0;const next=()=>{if(i<list.length)speak(list[i++],()=>window.setTimeout(next,250))};next()}
 
 function normalizeText(text){return text.toLowerCase().replace(/[^a-z0-9\u4e00-\u9fa5]/g,"")}
 function similarity(a,b){a=normalizeText(a);b=normalizeText(b);if(!a||!b)return 0;let same=0;const pool=[...b];for(const c of a){const i=pool.indexOf(c);if(i>=0){same++;pool.splice(i,1)}}return Math.round(200*same/(a.length+b.length))}
@@ -199,13 +273,29 @@ function selectQuizItems(subject,chapter){const key=`${subject}-${chapter}`,pool
 function findQuestion(subject,id){for(let chapter=0;chapter<quizzes[subject].length;chapter++){const item=quizzes[subject][chapter].find(x=>x.id===id);if(item)return {...item,chapter}}return null}
 function englishTarget(item){const quoted=item.q.match(/[“‘']([A-Za-z]+)[”’']/);if(quoted)return quoted[1].toLowerCase();const known=Object.keys(englishVisuals).find(word=>item.q.toLowerCase().includes(word));return known||null}
 function questionMedia(item){if(quiz.subject!=="english")return "";const target=englishTarget(item);if(!target)return `<button class="question-audio" data-question-audio="${escapeHtml(item.q.replace(/[\u4e00-\u9fa5？?]/g," "))}">${iconSpeaker()}播放英语题目</button>`;const visual=englishVisuals[target];return `<div class="question-media">${visual?`<img src="${imageUrl(visual,"landscape_4_3")}" alt="${target} 对应的场景图片">`:""}<button class="question-audio" data-question-audio="${target}">${iconSpeaker()}播放 ${target} 发音</button></div>`}
+function mathDiagram(visual){
+  if(!visual)return "";
+  if(visual.type==="numberLine"){
+    const ticks=Array.from({length:visual.parts+1},(_,i)=>{const x=60+i*520/visual.parts;return `<line x1="${x}" y1="105" x2="${x}" y2="125"/><text x="${x}" y="150">${i===0?0:i===visual.parts?1:""}</text>`}).join("");
+    const markX=60+visual.mark*520/visual.parts;
+    return `<svg class="math-diagram" viewBox="0 0 640 180" role="img" aria-label="0到1平均分成${visual.parts}份，第${visual.mark}个刻度已标记"><line x1="60" y1="115" x2="580" y2="115"/>${ticks}<circle class="diagram-mark" cx="${markX}" cy="115" r="9"/><text class="diagram-label" x="${markX}" y="82">?</text></svg>`;
+  }
+  const length=visual.length??visual.base??visual.bottom;
+  const width=visual.width??visual.height;
+  const label=visual.label||({court:"网球场",room:"教室地面",garden:"生活场地"}[visual.type]||"图形");
+  if(["court","room","garden"].includes(visual.type))return `<svg class="math-diagram ${visual.type}" viewBox="0 0 640 360" role="img" aria-label="${label}长${length}米、宽${width}米"><rect x="90" y="55" width="460" height="230" rx="10"/><g class="diagram-lines">${visual.type==="court"?'<line x1="320" y1="55" x2="320" y2="285"/><line x1="90" y1="170" x2="550" y2="170"/><rect x="205" y="55" width="230" height="230"/>':visual.type==="room"?'<path d="M90 112h460M90 170h460M90 227h460M205 55v230M320 55v230M435 55v230"/>':'<path d="M112 78h416v184H112z"/>'}</g><text class="diagram-title" x="320" y="170">${label}</text><text x="320" y="325">${length} 米</text><text x="54" y="170" transform="rotate(-90 54 170)">${width} 米</text></svg>`;
+  if(visual.type==="parallelogram")return `<svg class="math-diagram" viewBox="0 0 640 360" role="img" aria-label="${label}底${visual.base}米、高${visual.height}米"><polygon points="175,65 555,65 465,275 85,275"/><line class="diagram-height" x1="175" y1="65" x2="175" y2="275"/><text class="diagram-title" x="320" y="175">${label}</text><text x="275" y="320">底 ${visual.base} 米</text><text x="140" y="170" transform="rotate(-90 140 170)">高 ${visual.height} 米</text></svg>`;
+  if(visual.type==="triangle")return `<svg class="math-diagram" viewBox="0 0 640 360" role="img" aria-label="${label}底${visual.base}厘米、高${visual.height}厘米"><polygon points="320,45 545,285 95,285"/><line class="diagram-height" x1="320" y1="45" x2="320" y2="285"/><text class="diagram-title" x="320" y="205">${label}</text><text x="320" y="325">底 ${visual.base} 厘米</text><text x="275" y="165" transform="rotate(-90 275 165)">高 ${visual.height} 厘米</text></svg>`;
+  if(visual.type==="trapezoid")return `<svg class="math-diagram" viewBox="0 0 640 360" role="img" aria-label="${label}上底${visual.top}、下底${visual.bottom}、高${visual.height}"><polygon points="215,65 425,65 535,280 105,280"/><line class="diagram-height" x1="215" y1="65" x2="215" y2="280"/><text class="diagram-title" x="320" y="185">${label}</text><text x="320" y="48">上底 ${visual.top} 米</text><text x="320" y="325">下底 ${visual.bottom} 米</text><text x="180" y="180" transform="rotate(-90 180 180)">高 ${visual.height} 米</text></svg>`;
+  return "";
+}
 function startQuiz(subject,chapter,taskId,options={}){const items=options.items||selectQuizItems(subject,chapter);quiz={subject,chapter,taskId,index:0,correct:0,locked:false,items,isMistake:!!options.isMistake,listening:taskId.startsWith("daily-0")};document.getElementById("quizModal").hidden=false;document.body.style.overflow="hidden";renderQuestion()}
 function renderQuestion(){
   const items=quiz.items,item=items[quiz.index],s=subjects[quiz.subject],chapterName=quiz.isMistake?"错题三连胜":s.chapters[quiz.chapter][0];
   document.getElementById("quizSubject").textContent=`千寻小朋友 · ${s.name} · ${chapterName}`;
   document.getElementById("quizSubject").style.color=s.color;
   document.getElementById("quizStep").textContent=`${quiz.index+1} / ${items.length}`;
-  document.getElementById("quizBody").innerHTML=`${questionMedia(item)}<h2 class="question-title" id="quizTitle">${item.q}</h2>${quiz.listening?`<button class="listen-question" id="listenQuestion">${iconSpeaker()}播放题目发音</button>`:""}<div class="option-list">${item.o.map((o,i)=>`<button class="option-btn" data-option="${i}">${String.fromCharCode(65+i)}. ${o}</button>`).join("")}</div><div id="feedbackArea"></div>`;
+  document.getElementById("quizBody").innerHTML=`${questionMedia(item)}${mathDiagram(item.visual)}<h2 class="question-title" id="quizTitle">${item.q}</h2>${quiz.listening?`<button class="listen-question" id="listenQuestion">${iconSpeaker()}播放题目发音</button>`:""}<div class="option-list">${item.o.map((o,i)=>`<button class="option-btn" data-option="${i}">${String.fromCharCode(65+i)}. ${o}</button>`).join("")}</div><div id="feedbackArea"></div>`;
   document.querySelectorAll("[data-option]").forEach(b=>b.onclick=()=>answerQuestion(+b.dataset.option));
   document.querySelectorAll("[data-question-audio]").forEach(b=>b.onclick=()=>speak(b.dataset.questionAudio));
   if(quiz.listening){document.getElementById("listenQuestion").onclick=()=>speak(englishTarget(item)||item.o[item.a]);setTimeout(()=>speak(englishTarget(item)||item.o[item.a]),250)}

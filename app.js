@@ -52,13 +52,34 @@ const quizzes = {
   ]
 };
 
-const scienceComics = [
-  {tag:"考古漫画",title:"青铜面具会说话吗？",text:"跟着考古小队观察面具、神树和金杖，用文物碎片拼出古蜀人的故事。",bg:"#dff4ec",ink:"#257c86",chapter:1},
-  {tag:"宇宙漫画",title:"外星邻居在哪里？",text:"乘坐想象飞船寻找液态水，但每一个大胆猜想都要接受证据检查。",bg:"#e8e9ff",ink:"#7156c9",chapter:2},
-  {tag:"天文漫画",title:"月亮的变脸日记",text:"用饼干模型理解月相，认识为什么月亮不会真的被“吃掉”。",bg:"#fff2d8",ink:"#d98218",chapter:3},
-  {tag:"地理漫画",title:"一滴水游安徽",text:"从大别山出发，沿河流经过平原，用地图认识地形与家乡。",bg:"#e2f3ff",ink:"#2457d6",chapter:4},
-  {tag:"历史漫画",title:"博物馆午夜侦探",text:"文物不是沉默的宝物，它们会用材料、纹样和位置讲述过去。",bg:"#ffe9e6",ink:"#d95752",chapter:5},
-  {tag:"生命漫画",title:"一平方米的生态城",text:"草、昆虫、鸟和微生物互相连接，小小角落也有完整生态故事。",bg:"#e4f7e7",ink:"#2ca86f",chapter:6}
+const scienceVideos = [
+  {
+    id:"sanxingdui-treasures",topic:"三星堆 · 考古",title:"三星堆国宝三连看",duration:"约 15 分钟",source:"CCTV、央视",level:"权威纪录片",bvid:"BV17W411B7Wi",page:16,
+    intro:"《如果国宝会说话》第一季第 16–18 集，每集约 5 分钟，依次观察三星堆青铜人像、青铜神树和太阳神鸟金箔。",
+    guide:["第16集：找出青铜人像最特别的五官","第17集：数一数神树上出现了哪些动物","第18集：观察太阳神鸟纹样怎样旋转"],
+    links:[
+      ["第16集 · 青铜人像","https://www.bilibili.com/bangumi/play/ep172650"],
+      ["第17集 · 青铜神树","https://www.bilibili.com/bangumi/play/ep172651"],
+      ["第18集 · 太阳神鸟金箔","https://www.bilibili.com/bangumi/play/ep172652"]
+    ],
+    note:"考古结论来自文物、遗址和检测证据。造型奇特不等于外星人制造。"
+  },
+  {
+    id:"alien-evidence",topic:"宇宙 · 外星生命",title:"科学家怎样寻找外星生命",duration:"观看 14–16 分钟",source:"Science Channel 节目",level:"科学探索",bvid:"BV1hUjw6KETb",page:2,
+    intro:"观看中文配音版的“追寻外星生命”和“寻找证据”相关章节，认识宜居环境、液态水和生命迹象。建议萌萌妈咪陪同观看并按下方时间点停止。",
+    guide:["从 06:23 开始，看到约 20:32","记下科学家寻找生命的三个条件","遇到“可能、也许、推测”时画一个问号"],
+    links:[["打开 B 站并定位章节","https://www.bilibili.com/video/BV1hUjw6KETb/?p=2&t=383"]],
+    note:"截至目前，人类尚未找到外星文明的确凿证据。视频中的星球生命形态包含基于科学条件的推演，不是已经发现的事实。"
+  }
+];
+
+const scienceBooks = [
+  {tag:"地理历史",title:"大中华寻宝记",subtitle:"建议从《安徽寻宝记》开始",publisher:"二十一世纪出版社集团",age:"7–14 岁",color:"#257c86",mark:"皖",text:"用寻宝冒险串联各省地理、历史、物产和风俗。先在地图上找到合肥，再标出故事经过的城市与地形。",url:"http://dzhxbj.com/cts.aspx",action:"访问系列官网"},
+  {tag:"中国历史",title:"漫画讲透上下五千年",subtitle:"5 册历史漫画",publisher:"江苏凤凰文艺出版社",age:"7–14 岁",color:"#d95752",mark:"史",text:"从上古文明讲到东汉末年，适合建立朝代时间线。每读一章，把人物、年代和一件大事写进时间轴。",url:"https://search.dangdang.com/?key=%C2%FE%BB%AD%BD%B2%CD%B8%C9%CF%CF%C2%CE%E5%C7%A7%C4%EA",action:"查找正版图书"},
+  {tag:"天文航天",title:"科学！大探险家",subtitle:"神秘天文馆奇遇",publisher:"中国友谊出版公司",age:"8 岁+",color:"#7156c9",mark:"星",text:"以漫画冒险讲月相、行星、外星生命和中国空间站。阅读时把“已经证实”和“科学猜想”分成两栏。",url:"https://search.dangdang.com/?key=9787505758605",action:"按 ISBN 查找"},
+  {tag:"航天历史",title:"漫画世界航天史",subtitle:"400 余幅手绘插图",publisher:"中国宇航出版社",age:"8 岁+",color:"#2457d6",mark:"航",text:"从飞天梦想读到现代航天器，用漫画了解世界航天发展的关键节点。读完选一个中国航天事件制作纪念卡。",url:"https://www.spacechina.com/",action:"了解出版机构"},
+  {tag:"天文科普",title:"植物大战僵尸2科学漫画",subtitle:"天文卷",publisher:"中国少年儿童出版社",age:"7–12 岁",color:"#2ca86f",mark:"天",text:"用熟悉角色解释太阳系、恒星和宇宙等知识。每章挑一个问题，再到天文馆或权威网站核对答案。",url:"https://search.dangdang.com/?key=9787514826654",action:"按 ISBN 查找"},
+  {tag:"综合科学",title:"米吴科学漫话",subtitle:"天文、地理、物理与生命",publisher:"中信出版集团",age:"6–12 岁",color:"#e88a25",mark:"科",text:"故事漫画覆盖多门科学，适合从兴趣主题跳读。千寻可以每周挑一本，画一张“我新发现的三件事”。",url:"https://www.citicpub.com/",action:"访问出版社"}
 ];
 
 const pictureApi="https://console.enterprise.trae.cn/api/ide/v1/text_to_image";
@@ -197,15 +218,31 @@ function renderCourses(){
   document.getElementById("courseTabs").innerHTML=Object.entries(subjects).map(([id,s])=>`<button class="course-tab ${id===activeCourse?"active":""}" style="--tab-color:${s.color}" data-course="${id}"><i style="background:${s.color}"></i>${s.name}</button>`).join("");
   document.querySelectorAll("[data-course]").forEach(b=>b.onclick=()=>{activeCourse=b.dataset.course;renderCourses()});
   const s=subjects[activeCourse];
-  document.getElementById("courseStage").innerHTML=`<div class="course-intro"><div><span class="section-kicker" style="color:${s.color}">${s.edition}</span><h2>${s.name}探索路线</h2><p>${s.intro}</p></div><div class="course-icon-large" style="background:${s.color}">${s.short}</div></div><div class="chapter-list">${s.chapters.map((c,i)=>`<article class="chapter-card" style="--chapter:${s.color};--chapter-soft:${s.soft}"><span class="chapter-index">${i+1}</span><div><h3>${c[0]}</h3><p>${c[1]}</p></div><button data-chapter="${i}">练一练</button></article>`).join("")}</div>`;
-  document.querySelectorAll("[data-chapter]").forEach(b=>b.onclick=()=>startQuiz(activeCourse,+b.dataset.chapter,`${activeCourse}-${b.dataset.chapter}`));
+  document.getElementById("courseStage").innerHTML=`<div class="course-intro"><div><span class="section-kicker" style="color:${s.color}">${s.edition}</span><h2>${s.name}探索路线</h2><p>${s.intro}</p></div><div class="course-icon-large" style="background:${s.color}">${s.short}</div></div><div class="chapter-list">${s.chapters.map((c,i)=>`<article class="chapter-card" style="--chapter:${s.color};--chapter-soft:${s.soft}"><span class="chapter-index">${i+1}</span><div><h3>${c[0]}</h3><p>${c[1]}</p></div><button data-chapter="${i}">${activeCourse==="science"?(i===1||i===2?"看视频":"做观察"):"练一练"}</button></article>`).join("")}</div>`;
+  document.querySelectorAll("[data-chapter]").forEach(b=>b.onclick=()=>{
+    const chapter=+b.dataset.chapter;
+    if(activeCourse==="science"){
+      const target=chapter===1||chapter===2?".science-cinema":".science-library";
+      document.querySelector(target)?.scrollIntoView({behavior:"smooth",block:"start"});
+      return;
+    }
+    startQuiz(activeCourse,chapter,`${activeCourse}-${chapter}`);
+  });
   renderScienceComics();
 }
 
 function renderScienceComics(){
   const panel=document.getElementById("scienceComics");panel.hidden=activeCourse!=="science";if(panel.hidden)return;
-  panel.innerHTML=`<div class="comic-heading"><div><span class="section-kicker">8–10 岁漫画科普</span><h2>千寻的科学漫画书架</h2></div><p>漫画负责打开好奇心，练习负责分清想象与证据。关于外星生命，只介绍科学探索，不把猜想说成事实。</p></div><div class="comic-grid">${scienceComics.map((c,i)=>`<article class="comic-card" style="--comic-bg:${c.bg};--comic-ink:${c.ink}"><div class="comic-scene"><span class="comic-ring"></span><span class="comic-orb"></span></div><div class="comic-body"><span>${c.tag}</span><h3>${c.title}</h3><p>${c.text}</p><button data-comic="${c.chapter}">阅读后挑战</button></div></article>`).join("")}</div>`;
-  document.querySelectorAll("[data-comic]").forEach(b=>b.onclick=()=>startQuiz("science",+b.dataset.comic,`science-${b.dataset.comic}`));
+  panel.innerHTML=`
+    <section class="science-cinema">
+      <div class="comic-heading"><div><span class="section-kicker">本周科学放映室</span><h2>先看懂，再动手探索</h2></div><p>每条路线约 15 分钟。视频来自 B 站原页面，本站不下载、不搬运；播放受 B 站登录、地区和版权状态影响。</p></div>
+      <div class="science-video-grid">${scienceVideos.map(v=>`<article class="science-video-card"><div class="video-frame"><iframe src="https://player.bilibili.com/player.html?bvid=${v.bvid}&page=${v.page}&high_quality=1&danmaku=0" title="${v.title}" loading="lazy" allowfullscreen sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe><span class="duration-pill">${v.duration}</span></div><div class="video-body"><div class="video-labels"><span>${v.topic}</span><span>${v.source}</span><span>${v.level}</span></div><h3>${v.title}</h3><p>${v.intro}</p><div class="watch-guide"><strong>千寻的观看任务</strong><ol>${v.guide.map(x=>`<li>${x}</li>`).join("")}</ol></div><div class="video-links">${v.links.map(x=>`<a href="${x[1]}" target="_blank" rel="noopener noreferrer">${x[0]} ↗</a>`).join("")}</div><aside class="science-boundary"><strong>科学边界：</strong>${v.note}</aside></div></article>`).join("")}</div>
+    </section>
+    <section class="science-library">
+      <div class="comic-heading"><div><span class="section-kicker">正版漫画导读 · 7–14 岁</span><h2>千寻的科学人文漫画书架</h2></div><p>这里展示真实出版的书目、阅读顺序和任务。本站不复制商业漫画内页，链接只用于查看官方介绍或寻找正版图书。</p></div>
+      <div class="book-shelf">${scienceBooks.map(b=>`<article class="book-card" style="--book:${b.color}"><div class="book-cover" aria-label="${b.title}导读卡"><span>${b.tag}</span><b>${b.mark}</b><strong>${b.title}</strong><small>${b.subtitle}</small></div><div class="book-body"><div class="book-meta"><span>${b.age}</span><span>${b.publisher}</span></div><p>${b.text}</p><a href="${b.url}" target="_blank" rel="noopener noreferrer">${b.action} ↗</a></div></article>`).join("")}</div>
+      <aside class="copyright-note"><strong>萌萌妈咪请注意：</strong>建议优先从图书馆、出版社或正规书店获取正版图书；购买前核对书名、出版社和 ISBN。封面与内页版权归原作者及出版机构所有。</aside>
+    </section>`;
 }
 
 function renderEnglish(){

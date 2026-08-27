@@ -82,6 +82,70 @@ const scienceBooks = [
   {tag:"综合科学",title:"米吴科学漫话",subtitle:"天文、地理、物理与生命",publisher:"中信出版集团",age:"6–12 岁",color:"#e88a25",mark:"科",text:"故事漫画覆盖多门科学，适合从兴趣主题跳读。千寻可以每周挑一本，画一张“我新发现的三件事”。",url:"https://www.citicpub.com/",action:"访问出版社"}
 ];
 
+const originalComics = [
+  {
+    id:"sanxingdui-team",tag:"考古漫画",title:"三星堆考古小队",subtitle:"面具不是外星人证据",color:"#257c86",symbol:"面具",chapter:1,
+    pages:[
+      ["遗址入口","千寻和科学机器人小证来到四川广汉。","千寻：这么大的眼睛，真的是外星人面具吗？","小证：先别猜，我们去找能检查的证据。","考古不是寻宝游戏。文物的位置、土层和周围遗迹都要记录。"],
+      ["发掘方格","考古队把土地划成整齐方格，一层层清理。","队员：这件器物出土的位置很重要，不能随手拔出来。","千寻：原来泥土也会记录时间！","同一土层中的器物，通常属于相近时期。"],
+      ["青铜面具","面具的眼睛和耳朵被大胆夸张。","千寻：古蜀人也许想表现千里眼和顺风耳。","小证：这是合理猜想，但还要和其他文物、祭祀遗迹互相印证。","艺术造型能表达信仰与想象，不等于真实人物长相。"],
+      ["青铜神树","高大的神树上有鸟、果实和弯曲枝条。","千寻：它会不会和古人观察太阳有关？","小证：学者会比较古籍、纹样与同时期遗址，但结论仍可修正。","考古结论常有不同解释，证据越多，解释越可靠。"],
+      ["实验室","研究员检测青铜成分、制作痕迹和年代。","研究员：合金比例和铸造接缝，能告诉我们工匠怎样工作。","千寻：高超工艺来自古人的智慧，不需要用外星人解释。","奇特不等于神秘力量，先寻找最能被证据支持的解释。"],
+      ["小队报告","千寻完成了第一张考古观察卡。","千寻：我看到的是古蜀文明丰富的想象和工艺。","小证：结案！未知可以继续研究，但不能把猜想说成事实。","挑战：选一件三星堆文物，写下“看到的事实”和“我的猜想”。"]
+    ]
+  },
+  {
+    id:"history-train",tag:"历史漫画",title:"千寻的五千年时间车",subtitle:"用时间线串起中国历史",color:"#d95752",symbol:"时间车",chapter:5,
+    pages:[
+      ["文明起点","时间车降落在远古聚落，先民正在种粟、制陶。","千寻：历史不是从皇帝故事才开始呀！","时光博士：没错，遗址让我们看到普通人的生活。","史前时期没有成熟文字，考古材料是重要证据。"],
+      ["夏商周站","青铜器、甲骨文和礼乐制度逐渐出现。","千寻：甲骨上的符号能读懂吗？","时光博士：许多已经释读，它们记录了商代社会。","目前可系统识读的早期成熟汉字是甲骨文。"],
+      ["秦汉站","秦统一文字和度量衡，汉代丝绸之路连接远方。","千寻：统一标准让不同地区交流更方便。","时光博士：历史变化既有大人物，也有交通、技术和制度的力量。","公元前后不是从零年开始，公元前1年之后是公元1年。"],
+      ["隋唐宋站","运河、城市、诗歌、印刷术和航海共同发展。","千寻：一项技术会改变很多人的生活。","时光博士：读历史时，要留意发明怎样传播和使用。","唐宋时期的文化与科技成就影响了中国和世界。"],
+      ["元明清站","不同民族交流融合，航海、城市和中外往来延续。","千寻：一个朝代不能只用一个故事概括。","时光博士：要同时观察政治、经济、文化和普通人生活。","历史评价要依据多种资料，避免只靠传说。"],
+      ["返回合肥","时间车回到今天，千寻画出一条长长时间线。","千寻：朝代是时间坐标，真正的历史是人怎样生活和改变。","时光博士：把新人物和事件贴到时间线上吧！","挑战：从秦、汉、唐、宋中任选两个，写出先后顺序和一个代表性变化。"]
+    ]
+  },
+  {
+    id:"alien-search",tag:"天文漫画",title:"寻找外星生命",subtitle:"没有绿皮小人也能做科学",color:"#7156c9",symbol:"星球",chapter:2,
+    pages:[
+      ["天文台来信","千寻收到一封来自望远镜的加密来信。","来信：请寻找可能孕育生命的星球，但不要凭想象下结论。","千寻：第一步该找什么？","科学家寻找的是生命迹象，不是先假定外星人长什么样。"],
+      ["宜居带","小飞船停在一颗恒星旁，行星有远有近。","小证：太近可能太热，太远可能太冷。","千寻：适合液态水存在的范围叫宜居带。","位于宜居带只是条件之一，不代表那里一定有生命。"],
+      ["大气密码","望远镜分析穿过行星大气的光。","千寻：原来不用飞过去，也能研究大气成分。","小证：某些气体组合可能提示生命活动，但也可能由非生命过程产生。","生命迹象需要多次观测和不同方法共同验证。"],
+      ["冰下海洋","木卫二的冰层下可能藏着液态海洋。","千寻：没有阳光的海洋也可能有能量来源吗？","小证：地球深海生物提醒我们，化学能也能支持生态系统。","研究地球极端环境，可帮助科学家想象其他世界的生命条件。"],
+      ["神秘信号","接收器突然出现一串规律信号。","千寻：发现外星文明了？","小证：先排查卫星、设备故障和地球无线电干扰。","异常信号不是结论。可重复、可排除干扰，才可能成为可靠证据。"],
+      ["任务结论","信号最终来自地球设备，但千寻并不失望。","千寻：排除错误也是科学进步。","小证：宇宙仍然值得探索，只是答案要交给证据。","挑战：把“液态水、绿色小人、可重复信号、科幻故事”分成线索、想象和证据。"]
+    ]
+  },
+  {
+    id:"anhui-map",tag:"地理漫画",title:"一张地图游安徽",subtitle:"从合肥出发认识家乡",color:"#2ca86f",symbol:"地图",chapter:4,
+    pages:[
+      ["合肥出发","千寻摊开安徽地图，找到家乡合肥。","千寻：地图上方一定是北方吗？","地图精灵：先看指向标。多数地图上北下南，但不能只凭习惯。","地图三要素通常包括方向、比例尺和图例。"],
+      ["淮河两岸","小船沿淮河前进，两岸地势较平缓。","千寻：河流会影响城市、农业和交通。","地图精灵：也要关注洪水治理和水资源保护。","淮河是中国重要的地理分界线之一。"],
+      ["黄山云海","飞行地图来到皖南山区，山峰起伏。","千寻：为什么这里的道路不像平原那样笔直？","地图精灵：地形会影响交通线路和聚落分布。","安徽地势总体西南较高，沿江淮地区较平缓。"],
+      ["长江码头","地图沿长江经过安徽南部城市。","千寻：大河既能运输，也塑造平原。","地图精灵：观察河流时要看流向、支流和沿岸城市。","安徽同时跨越淮河与长江两大流域。"],
+      ["天气侦察","北部平原和南部山区出现不同天气图标。","千寻：同一天，全省各地天气也可能不同。","地图精灵：纬度、地形和水汽都会影响气候。","天气描述短时间变化，气候描述一个地区较长期的特征。"],
+      ["家乡地图","千寻回到合肥，开始绘制自己的生活地图。","千寻：我要标出学校、公园、图书馆和回家的路线。","地图精灵：别忘了图例、方向和安全地标。","挑战：画一张从家到学校的示意图，并设计不少于三个图例。"]
+    ]
+  }
+];
+
+const codingComic = {
+  id:"coding-first-step",tag:"编程启蒙漫画",title:"小猫听懂我的话",subtitle:"认识指令、顺序和调试",color:"#7156c9",symbol:"积木",
+  pages:[
+    ["任务来了","千寻想让屏幕里的小猫走到星星旁边。","千寻：小猫，你自己走过去吧！","积木精灵：计算机听不懂含糊的话，要给它明确指令。","程序就是按一定顺序排列的一组清楚指令。"],
+    ["第一块积木","千寻拖出“向右移动10步”的蓝色积木。","千寻：原来不用先背英文代码，也能控制角色。","积木精灵：Scratch把代码做成积木，拼起来就能运行。","图形化编程适合零基础入门，重点仍是思考步骤。"],
+    ["顺序不能乱","小猫先说“我到了”，然后才开始移动。","千寻：台词说早了，应该先移动再说话。","积木精灵：交换两块积木，运行结果就可能不同。","程序从上到下执行时，指令顺序会影响结果。"],
+    ["重复动作","小猫要连续走10次，千寻不想拖10块积木。","千寻：能不能告诉它“重复10次”？","积木精灵：当然，这就是循环，可以减少重复指令。","循环用于反复执行相同或相似的动作。"],
+    ["发现错误","小猫走过了星星，还撞到了屏幕边缘。","千寻：不是小猫笨，是我的步数太大。","积木精灵：观察结果、找到原因、修改再测试，这叫调试。","程序出错很正常，调试是编程的重要组成部分。"],
+    ["第一次成功","小猫停在星星旁边，开心地说“你好，千寻！”","千寻：我会用指令、顺序和循环了。","积木精灵：下一步打开 Scratch，让真正的小猫动起来吧！","挑战：用箭头画出“起床后刷牙”的4个步骤，看看顺序能否交换。"]
+  ]
+};
+
+const codingVideos = [
+  {title:"第一步：认识少儿编程",duration:"2分07秒",source:"奇思玩科学",bvid:"BV1ga411w7dY",page:1,url:"https://www.bilibili.com/video/BV1ga411w7dY/",text:"先知道编程是在做什么，不讲复杂代码。看完能说出“程序”和“指令”的关系。"},
+  {title:"第二步：让小猫动起来",duration:"9分51秒",source:"Scratch 零基础课程",bvid:"BV1dnsqenEZg",page:1,url:"https://www.bilibili.com/video/BV1dnsqenEZg/?p=1",text:"认识 Scratch 界面，拖动积木，让角色完成第一次动作。建议萌萌妈咪陪千寻一起暂停操作。"}
+];
+
 const pictureApi="https://console.enterprise.trae.cn/api/ide/v1/text_to_image";
 const englishVisuals={library:"A bright modern primary school library, colorful bookshelves, reading tables, warm daylight, no text, child friendly educational illustration",school:"A welcoming Chinese primary school campus with classroom buildings and playground, sunny day, no text, child friendly illustration",teacher:"A friendly female primary school English teacher standing by a classroom board, no text, warm educational illustration",breakfast:"Healthy breakfast with milk eggs bread and fruit on a family table, no text, child friendly illustration",weather:"Four weather conditions sun cloud rain snow in one educational scene, no text, child friendly illustration"};
 function imageUrl(prompt,size="landscape_4_3"){return `${pictureApi}?prompt=${encodeURIComponent(`Educational website image for an 10-year-old child: ${prompt}`)}&image_size=${size}`}
@@ -185,6 +249,7 @@ let activeCourse = "chinese";
 let activeMistakeSubject = "chinese";
 let englishMode = "words";
 let quiz = null;
+let comicReading = null;
 
 function loadState(){
   try{const saved=JSON.parse(localStorage.getItem("grade5Adventure")||"{}");return {...defaultState,...saved,subjectDone:{...defaultState.subjectDone,...(saved.subjectDone||{})},wishes:Array.isArray(saved.wishes)?saved.wishes:[],mistakes:saved.mistakes||{},lastSets:saved.lastSets||{}};}catch{return {...defaultState,subjectDone:{...defaultState.subjectDone},wishes:[],mistakes:{},lastSets:{}};}
@@ -218,17 +283,26 @@ function renderCourses(){
   document.getElementById("courseTabs").innerHTML=Object.entries(subjects).map(([id,s])=>`<button class="course-tab ${id===activeCourse?"active":""}" style="--tab-color:${s.color}" data-course="${id}"><i style="background:${s.color}"></i>${s.name}</button>`).join("");
   document.querySelectorAll("[data-course]").forEach(b=>b.onclick=()=>{activeCourse=b.dataset.course;renderCourses()});
   const s=subjects[activeCourse];
-  document.getElementById("courseStage").innerHTML=`<div class="course-intro"><div><span class="section-kicker" style="color:${s.color}">${s.edition}</span><h2>${s.name}探索路线</h2><p>${s.intro}</p></div><div class="course-icon-large" style="background:${s.color}">${s.short}</div></div><div class="chapter-list">${s.chapters.map((c,i)=>`<article class="chapter-card" style="--chapter:${s.color};--chapter-soft:${s.soft}"><span class="chapter-index">${i+1}</span><div><h3>${c[0]}</h3><p>${c[1]}</p></div><button data-chapter="${i}">${activeCourse==="science"?(i===1||i===2?"看视频":"做观察"):"练一练"}</button></article>`).join("")}</div>`;
+  document.getElementById("courseStage").innerHTML=`<div class="course-intro"><div><span class="section-kicker" style="color:${s.color}">${s.edition}</span><h2>${s.name}探索路线</h2><p>${s.intro}</p></div><div class="course-icon-large" style="background:${s.color}">${s.short}</div></div><div class="chapter-list">${s.chapters.map((c,i)=>`<article class="chapter-card" style="--chapter:${s.color};--chapter-soft:${s.soft}"><span class="chapter-index">${i+1}</span><div><h3>${c[0]}</h3><p>${c[1]}</p></div><button data-chapter="${i}">${activeCourse==="science"?(i===1||i===2?"打开视频":"打开漫画"):activeCourse==="coding"?(i===0?"先看漫画":i===1?"看入门视频":"学习后练习"):"练一练"}</button></article>`).join("")}</div>`;
   document.querySelectorAll("[data-chapter]").forEach(b=>b.onclick=()=>{
     const chapter=+b.dataset.chapter;
     if(activeCourse==="science"){
-      const target=chapter===1||chapter===2?".science-cinema":".science-library";
-      document.querySelector(target)?.scrollIntoView({behavior:"smooth",block:"start"});
+      if(chapter===1){window.open(scienceVideos[0].links[0][1],"_blank","noopener");return;}
+      if(chapter===2){window.open(scienceVideos[1].links[0][1],"_blank","noopener");return;}
+      const comicByChapter={0:"sanxingdui-team",3:"alien-search",4:"anhui-map",5:"history-train",6:"anhui-map"};
+      openComic(comicByChapter[chapter]);
+      return;
+    }
+    if(activeCourse==="coding"){
+      if(chapter===0){openComic(codingComic.id);return;}
+      if(chapter===1){document.querySelector(".coding-learning")?.scrollIntoView({behavior:"smooth"});return;}
+      startQuiz("coding",chapter,`coding-${chapter}`);
       return;
     }
     startQuiz(activeCourse,chapter,`${activeCourse}-${chapter}`);
   });
   renderScienceComics();
+  renderCodingLearning();
 }
 
 function renderScienceComics(){
@@ -239,11 +313,46 @@ function renderScienceComics(){
       <div class="science-video-grid">${scienceVideos.map(v=>`<article class="science-video-card"><div class="video-frame"><iframe src="https://player.bilibili.com/player.html?bvid=${v.bvid}&page=${v.page}&high_quality=1&danmaku=0" title="${v.title}" loading="lazy" allowfullscreen sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe><span class="duration-pill">${v.duration}</span></div><div class="video-body"><div class="video-labels"><span>${v.topic}</span><span>${v.source}</span><span>${v.level}</span></div><h3>${v.title}</h3><p>${v.intro}</p><div class="watch-guide"><strong>千寻的观看任务</strong><ol>${v.guide.map(x=>`<li>${x}</li>`).join("")}</ol></div><div class="video-links">${v.links.map(x=>`<a href="${x[1]}" target="_blank" rel="noopener noreferrer">${x[0]} ↗</a>`).join("")}</div><aside class="science-boundary"><strong>科学边界：</strong>${v.note}</aside></div></article>`).join("")}</div>
     </section>
     <section class="science-library">
-      <div class="comic-heading"><div><span class="section-kicker">正版漫画导读 · 7–14 岁</span><h2>千寻的科学人文漫画书架</h2></div><p>这里展示真实出版的书目、阅读顺序和任务。本站不复制商业漫画内页，链接只用于查看官方介绍或寻找正版图书。</p></div>
+      <div class="comic-heading"><div><span class="section-kicker">点开就能读 · 本站原创</span><h2>千寻的可翻页知识漫画</h2></div><p>每本 6 页，有故事、人物对白和知识提示。直接在网页内阅读，不需要购买或跳转其他网站。</p></div>
+      <div class="readable-comics">${originalComics.map(c=>`<article class="readable-comic" style="--story:${c.color}"><div class="story-cover"><span>${c.tag}</span><b>${c.symbol}</b><h3>${c.title}</h3><p>${c.subtitle}</p></div><div class="story-info"><strong>6 页完整故事</strong><p>${c.pages[0][1]}</p><button data-read-comic="${c.id}">开始阅读</button></div></article>`).join("")}</div>
+      <details class="parent-book-list"><summary>萌萌妈咪参考：正版延伸书目</summary>
       <div class="book-shelf">${scienceBooks.map(b=>`<article class="book-card" style="--book:${b.color}"><div class="book-cover" aria-label="${b.title}导读卡"><span>${b.tag}</span><b>${b.mark}</b><strong>${b.title}</strong><small>${b.subtitle}</small></div><div class="book-body"><div class="book-meta"><span>${b.age}</span><span>${b.publisher}</span></div><p>${b.text}</p><a href="${b.url}" target="_blank" rel="noopener noreferrer">${b.action} ↗</a></div></article>`).join("")}</div>
-      <aside class="copyright-note"><strong>萌萌妈咪请注意：</strong>建议优先从图书馆、出版社或正规书店获取正版图书；购买前核对书名、出版社和 ISBN。封面与内页版权归原作者及出版机构所有。</aside>
+      </details>
+      <aside class="copyright-note"><strong>说明：</strong>上方四个故事和画面为本站原创学习内容，可以直接阅读；《大中华寻宝记》等商业作品仅保留为家长选书参考，不复制其内页。</aside>
     </section>`;
+  document.querySelectorAll("[data-read-comic]").forEach(b=>b.onclick=()=>openComic(b.dataset.readComic));
 }
+
+function renderCodingLearning(){
+  const panel=document.getElementById("scienceComics");
+  if(activeCourse!=="coding")return;
+  panel.hidden=false;
+  panel.innerHTML=`<section class="coding-learning"><div class="comic-heading"><div><span class="section-kicker">零基础第一站</span><h2>先看漫画，再跟视频动手</h2></div><p>千寻不需要背代码。先理解指令和顺序，再用 Scratch 彩色积木完成第一次编程。</p></div><div class="coding-start"><article class="readable-comic coding-comic" style="--story:${codingComic.color}"><div class="story-cover"><span>${codingComic.tag}</span><b>${codingComic.symbol}</b><h3>${codingComic.title}</h3><p>${codingComic.subtitle}</p></div><div class="story-info"><strong>第 1 步 · 6 页漫画</strong><p>跟千寻一起发现：为什么计算机需要清楚的指令，错误又该怎样修改。</p><button data-coding-comic>先读漫画</button></div></article><div class="coding-video-list">${codingVideos.map((v,i)=>`<article class="coding-video"><div class="coding-video-frame"><iframe src="https://player.bilibili.com/player.html?bvid=${v.bvid}&page=${v.page}&high_quality=1&danmaku=0" title="${v.title}" loading="lazy" allowfullscreen></iframe></div><div><span>第 ${i+2} 步 · ${v.duration}</span><h3>${v.title}</h3><p>${v.text}</p><a href="${v.url}" target="_blank" rel="noopener noreferrer">播放器打不开？去 B 站观看 ↗</a></div></article>`).join("")}</div></div><aside class="coding-order"><strong>推荐顺序：</strong>读完 6 页漫画 → 看 2 分钟“认识编程” → 跟着 9 分钟视频让小猫动起来 → 再进入循环、条件和变量练习。</aside></section>`;
+  document.querySelector("[data-coding-comic]").onclick=()=>openComic(codingComic.id);
+}
+
+function openComic(id){
+  const story=originalComics.find(c=>c.id===id)||(codingComic.id===id?codingComic:null);if(!story)return;
+  comicReading={story,page:0};
+  document.getElementById("comicModal").hidden=false;
+  document.body.style.overflow="hidden";
+  renderComicPage();
+}
+
+function renderComicPage(){
+  if(!comicReading)return;
+  const {story,page}=comicReading,p=story.pages[page];
+  document.getElementById("comicReaderBody").innerHTML=`<div class="reader-top"><div><span>${story.tag}</span><h2 id="comicReaderTitle">${story.title}</h2></div><strong>${page+1} / ${story.pages.length}</strong></div><div class="comic-page" style="--story:${story.color}"><div class="panel-scene"><span class="scene-sun"></span><span class="scene-ground"></span><div class="scene-hero">千寻</div><div class="scene-friend">${story.symbol}</div><h3>${p[0]}</h3></div><div class="comic-dialogues"><p class="narration">${p[1]}</p><div class="speech speech-one">${p[2]}</div><div class="speech speech-two">${p[3]}</div><aside><strong>这一页学到：</strong>${p[4]}</aside></div></div><div class="reader-actions"><button data-comic-prev ${page===0?"disabled":""}>上一页</button><div class="page-dots">${story.pages.map((_,i)=>`<i class="${i===page?"active":""}"></i>`).join("")}</div><button data-comic-next>${page===story.pages.length-1?"读完了":"下一页"}</button></div>`;
+  document.querySelector("[data-comic-prev]").onclick=()=>{comicReading.page--;renderComicPage()};
+  document.querySelector("[data-comic-next]").onclick=()=>{
+    if(page<story.pages.length-1){comicReading.page++;renderComicPage();return;}
+    closeComic();toast(`《${story.title}》阅读完成，千寻真棒！`);
+  };
+}
+
+function closeComic(){document.getElementById("comicModal").hidden=true;document.body.style.overflow="";comicReading=null}
+document.getElementById("closeComic").onclick=closeComic;
+document.getElementById("comicModal").onclick=e=>{if(e.target.id==="comicModal")closeComic()};
 
 function renderEnglish(){
   const modes=[["words","高频词卡"],["sounds","发音实验室"],["dialogue","情景小剧场"]];
